@@ -27,7 +27,8 @@
 
 
 var card_count = 0
-
+var random_number= 0
+var player_total = 0
 
 var card_array = ["10_of_clubs.png",
  "10_of_diamonds.png",
@@ -81,14 +82,81 @@ var card_array = ["10_of_clubs.png",
  "queen_of_diamonds.png",
  "queen_of_hearts.png",
 "queen_of_spades.png"]
+
+
+
+var card_dict = {
+
+"10_of_clubs.png": 10,
+"10_of_diamonds.png": 10,
+"10_of_hearts.png": 10,
+"10_of_spades.png": 10,
+"2_of_clubs.png": 2,
+"2_of_diamonds.png": 2,
+"2_of_hearts.png": 2,
+"2_of_spades.png": 2,
+"3_of_clubs.png": 3,
+"3_of_diamonds.png": 3,
+"3_of_hearts.png": 3,
+"3_of_spades.png": 3,
+"4_of_clubs.png": 4,
+"4_of_diamonds.png": 4,
+"4_of_hearts.png": 4,
+"4_of_spades.png": 4,
+"5_of_clubs.png": 5,
+"5_of_diamonds.png": 5,
+"5_of_hearts.png": 5,
+"5_of_spades.png": 5,
+"6_of_clubs.png": 6,
+"6_of_diamonds.png": 6,
+"6_of_hearts.png": 6,
+"6_of_spades.png": 6,
+"7_of_clubs.png": 7,
+"7_of_diamonds.png": 7,
+"7_of_hearts.png": 7,
+"7_of_spades.png": 7,
+"8_of_clubs.png": 8,
+"8_of_diamonds.png": 8,
+"8_of_hearts.png": 8,
+"8_of_spades.png": 8,
+"9_of_clubs.png": 9,
+"9_of_diamonds.png": 9,
+"9_of_hearts.png": 9,
+"9_of_spades.png": 9,
+"ace_of_clubs.png": 11,
+"ace_of_diamonds.png": 11,
+"ace_of_hearts.png": 11,
+"ace_of_spades.png": 11,
+"jack_of_clubs.png": 10,
+"jack_of_diamonds.png": 10,
+"jack_of_hearts.png": 10,
+"jack_of_spades.png": 10,
+"king_of_clubs.png": 10,
+"king_of_diamonds.png": 10,
+"king_of_hearts.png": 10,
+"king_of_spades.png": 10,
+"queen_of_clubs.png": 10,
+"queen_of_diamonds.png": 10,
+"queen_of_hearts.png": 10,
+"queen_of_spades.png": 10 
+}
 	
+
 
 	$(document).ready(function(){
 
+		
+
 		$('button').click(function(){
 
+			random_number = Math.floor(Math.random()*(52))
+
 			$('body').append('<div class=\"test\" style =\"left:' + parseInt(100+card_count*45, 10)+ 'px\"><img src=\"static/img/' 
-				+ card_array[Math.floor(Math.random()*(52-0+1))] +'\"/></div>')
+				+ card_array[random_number] +'\"/></div>')
+
+			player_total = player_total + card_dict[card_array[random_number]]
+
+			
 
 
 
