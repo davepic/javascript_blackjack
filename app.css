@@ -22,6 +22,59 @@ img {
 
 }
 
+div#player_total {
+
+
+	position:absolute;
+	top:500px;
+	height:100px;
+	width:100px;
+	background-color:black;
+	color:white;
+	font-size: 50px;
+	text-align:center;
+	vertical-align: middle;
+	line-height:100px;
+
+
+
+}
+
+
+.banner {
+
+	position:absolute;
+	background-color:rgba(0,0,0,.5);
+	color:white;
+	width:1000px;
+	height:300px;
+	top:100px;
+	left:200px;
+	text-align:center;
+	vertical-align: center;
+	line-height:300px;
+	font-size:100px;
+	font-family:sans-serif;
+
+
+
+}
+
+button#reload {
+
+	position:absolute;
+	background-color:white;
+	color:black;
+	width:100px;
+	height:50px;
+	top:225px;
+	left:450px;
+	font-size:10px;
+
+
+
+}
+
 
 .test {
 

@@ -18,7 +18,9 @@
 <body>
 	
 
-<button>PICK CARD</button>
+<button id = "hit" >PICK CARD</button>
+
+<div id = "player_total"></div>
 
 
 
@@ -29,6 +31,7 @@
 var card_count = 0
 var random_number= 0
 var player_total = 0
+var ace_count = 0
 
 var card_array = ["10_of_clubs.png",
  "10_of_diamonds.png",
@@ -147,23 +150,63 @@ var card_dict = {
 
 		
 
-		$('button').click(function(){
+		$('#hit').click(function(){
+
+
+			if(player_total<=21){
 
 			random_number = Math.floor(Math.random()*(52))
 
 			$('body').append('<div class=\"test\" style =\"left:' + parseInt(100+card_count*45, 10)+ 'px\"><img src=\"static/img/' 
 				+ card_array[random_number] +'\"/></div>')
 
+			if (card_dict[card_array[random_number]] === 11){
+
+				ace_count++;
+
+			}
+
 			player_total = player_total + card_dict[card_array[random_number]]
 
-			
+			if(player_total>21 && ace_count>0){
+
+				player_total=player_total-10
+				ace_count=ace_count-1
+
+			}
+
+			if(player_total>21){
+
+
+				$('body').append('<div class=\"banner\">You LOST<button id=\"reload\">New Hand</button></div>')
+				
+
+			}
+
+			$('#player_total').text(player_total)
 
 
 
 			card_count = card_count + 1
 
 
+			$('#reload').click(function(){
+
+				location.reload()
+
+			}); 
+		}
+
 		});
+
+
+		
+
+
+
+
+
+		
 
 
 	});
