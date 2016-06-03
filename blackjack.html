@@ -18,7 +18,7 @@
 <body>
 	
 
-<button id = "hit" >PICK CARD</button>
+<div id = "hit">HIT</div>
 
 <div id = "player_total"></div>
 
@@ -152,12 +152,12 @@ var card_dict = {
 
 		$('#hit').click(function(){
 
-
+			
 			if(player_total<=21){
 
 			random_number = Math.floor(Math.random()*(52))
 
-			$('body').append('<div class=\"test\" style =\"left:' + parseInt(100+card_count*45, 10)+ 'px\"><img src=\"static/img/' 
+			$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+card_count*45, 10)+ 'px\"><img src=\"static/img/' 
 				+ card_array[random_number] +'\"/></div>')
 
 			if (card_dict[card_array[random_number]] === 11){
@@ -178,7 +178,7 @@ var card_dict = {
 			if(player_total>21){
 
 
-				$('body').append('<div class=\"banner\">You LOST<button id=\"reload\">New Hand</button></div>')
+				$('body').append('<div class=\"banner\">You LOST<div id=\"reload\">New Hand</div></div>')
 				
 
 			}
