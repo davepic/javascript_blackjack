@@ -18,7 +18,11 @@
 <body>
 	
 
+
+
+
 <div id = "hit">HIT</div>
+<div id = "stay">STAY</div>
 
 <div id = "player_total"></div>
 
@@ -148,6 +152,19 @@ var card_dict = {
 
 	$(document).ready(function(){
 
+
+		for(var i = 0; i<2;i++){
+
+			$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(500+i*45, 10)+ 'px\"><img src=\"static/img/' 
+				+ card_array[Math.floor(Math.random()*(52))] +'\"/></div>');
+
+		}
+
+		$('body').append('<div id = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
+
+		
+
+
 		
 
 		$('#hit').click(function(){
@@ -155,10 +172,10 @@ var card_dict = {
 			
 			if(player_total<=21){
 
-			random_number = Math.floor(Math.random()*(52))
+			random_number = Math.floor(Math.random()*(52));
 
 			$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+card_count*45, 10)+ 'px\"><img src=\"static/img/' 
-				+ card_array[random_number] +'\"/></div>')
+				+ card_array[random_number] +'\"/></div>');
 
 			if (card_dict[card_array[random_number]] === 11){
 
@@ -170,35 +187,48 @@ var card_dict = {
 
 			if(player_total>21 && ace_count>0){
 
-				player_total=player_total-10
-				ace_count=ace_count-1
+				player_total=player_total-10;
+				ace_count=ace_count-1;
 
 			}
 
 			if(player_total>21){
 
 
-				$('body').append('<div class=\"banner\">You LOST<div id=\"reload\">New Hand</div></div>')
+				$('body').append('<div class=\"banner\">You LOST<div id=\"reload\">New Hand</div></div>');
 				
 
 			}
 
-			$('#player_total').text(player_total)
+			$('#player_total').text(player_total);
 
 
 
-			card_count = card_count + 1
+			card_count = card_count + 1;
 
 
 			$('#reload').click(function(){
 
-				location.reload()
+				location.reload();
 
 			}); 
 		}
 
 		});
 
+
+
+		$('#stay').click(function(){
+
+
+			$('#hit').css("display", "none");
+			$('#stay').css("display", "none");
+
+			
+
+			
+
+		});
 
 		
 
