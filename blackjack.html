@@ -231,11 +231,7 @@ var card_dict = {
 			card_count = card_count + 1;
 
 
-			$('#reload').click(function(){
-
-				location.reload();
-
-			}); 
+			
 		}
 
 		});
@@ -252,7 +248,9 @@ var card_dict = {
 			$('#dealer_total').text(dealer_total);
 			setTimeout(function(){
 
-				if (dealer_total > player_total && dealer_total>=17){
+				if(17<=dealer_total<=21){
+
+					if (dealer_total > player_total && dealer_total>=17){
 
 					$('body').append('<div class=\"banner\">YOU LOSE<div id=\"reload\">New Hand</div></div>');
 
@@ -268,6 +266,11 @@ var card_dict = {
 					$('body').append('<div class=\"banner\">DEALER BUSTS<div id=\"reload\">New Hand</div></div>');
 
 				};
+
+
+				}
+
+				
 
 			}, 500);
 			
@@ -355,29 +358,19 @@ var card_dict = {
 			}
 			
 
+		});
 
+		
+		$(document).on('click', "#player_total", function(){
 
+			alert('hi');
 
 		});
 
 		
 
 
-
-
-
-		
-
-
 	});
-
-
-
-
-
-
-
-
 
 
 
