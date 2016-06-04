@@ -43,6 +43,24 @@ div#player_total {
 
 }
 
+div#dealer_total {
+
+
+	position:absolute;
+	top:200px;
+	height:100px;
+	width:100px;
+	background-color:black;
+	color:white;
+	font-size: 50px;
+	text-align:center;
+	vertical-align: middle;
+	line-height:100px;
+
+
+
+}
+
 
 .banner {
 
@@ -201,6 +219,7 @@ div#stay:hover {
 	width:175px;
 	position:absolute;
 	top:50px;
+	
 
 
 
