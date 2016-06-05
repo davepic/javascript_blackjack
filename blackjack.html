@@ -159,8 +159,7 @@ var card_dict = {
 
 		for(var i = 0; i<2;i++){
 
-			random_number = Math.floor(Math.random()*(52))
-
+			random_number = Math.floor(Math.random()*(52));
 
 			if (card_dict[card_array[random_number]] === 11){
 
@@ -175,64 +174,60 @@ var card_dict = {
 
 				$('#dealer_total').text(card_dict[card_array[random_number]]);
 
-
-			};
+			}
 
 			dealer_total = dealer_total + card_dict[card_array[random_number]];
 
+		}
 
-
-		};
+		
 
 		$('body').append('<div id = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
 
-		
-
-
-		
 
 		$('#hit').click(function(){
 
 			
 			if(player_total<=21){
 
-			random_number = Math.floor(Math.random()*(52));
+				random_number = Math.floor(Math.random()*(52));
 
-			$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+card_count*45, 10)+ 'px\"><img src=\"static/img/' 
-				+ card_array[random_number] +'\"/></div>');
+				$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+card_count*45, 10)+ 'px\"><img src=\"static/img/' 
+					+ card_array[random_number] +'\"/></div>');
 
-			if (card_dict[card_array[random_number]] === 11){
+				if (card_dict[card_array[random_number]] === 11){
 
-				ace_count++;
+					ace_count++;
 
-			}
+				};
 
-			player_total = player_total + card_dict[card_array[random_number]]
+				player_total = player_total + card_dict[card_array[random_number]];
 
-			if(player_total>21 && ace_count>0){
+				if(player_total>21 && ace_count>0){
 
-				player_total=player_total-10;
-				ace_count=ace_count-1;
+					player_total=player_total-10;
+					ace_count=ace_count-1;
 
-			}
+				};
 
-			if(player_total>21){
+				if(player_total>21){
+
+					$('body').append('<div class=\"banner\">You LOSE<div id=\"reload\">New Hand</div></div>');
+
+					$('#reload').click(function(){
 
 
-				$('body').append('<div class=\"banner\">You LOSE<div id=\"reload\">New Hand</div></div>');
+						location.reload();
+
+					});
 				
+				};
+
+				$('#player_total').text(player_total);
+
+				card_count = card_count + 1;
 
 			}
-
-			$('#player_total').text(player_total);
-
-
-
-			card_count = card_count + 1;
-
-
-			
-		}
 
 		});
 
@@ -244,143 +239,106 @@ var card_dict = {
 			$('#hit').css("display", "none");
 			$('#stay').css("display", "none");
 			$('#card_back').css("display", "none");
-
 			$('#dealer_total').text(dealer_total);
+
+			var dealer_card_list = [];
+			var dealer_total_list = [];
+
+
+			dealer_card_count = 2;
+
+				while (dealer_total < 17) {
+
+		
+					random_number = Math.floor(Math.random()*(52));
+
+					dealer_card_list.push(card_array[random_number]);
+
+				
+					if (card_dict[card_array[random_number]] === 11){
+
+						dealer_ace_count++;
+
+					}
+
+					dealer_total = dealer_total + card_dict[card_array[random_number]];
+
+					if(dealer_total>21 && dealer_ace_count>0){
+
+						dealer_total= dealer_total-10;
+						dealer_ace_count=dealer_ace_count-1;
+
+					}
+
+					dealer_card_count = dealer_card_count + 1;
+
+					dealer_total_list.push(dealer_total);
+
+
+				}		
+
+				for (var i = 1; i < dealer_card_count-1; i++) {
+    				setTimeout(function(x) { return function() {
+
+
+
+    				 $('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(500+(x+1)*45, 10)+ 'px\"><img src=\"static/img/' 
+					+ dealer_card_list[x] +'\"/></div>');
+				
+
+					$('#dealer_total').text(dealer_total_list[x-1]);
+
+
+    				}; }(i), 1000*i);
+    				
+				}
+
+
+						
+
 			setTimeout(function(){
 
-				if(17<=dealer_total<=21){
+					if(dealer_total>21){
 
-					if (dealer_total > player_total && dealer_total>=17){
+						$('body').append('<div class=\"banner\">DEALER BUSTS<div id=\"reload\">New Hand</div></div>');
 
-					$('body').append('<div class=\"banner\">YOU LOSE<div id=\"reload\">New Hand</div></div>');
+					} 
 
-				}
+					else if((dealer_total>player_total) && (17<=dealer_total<=21)){
 
-				else if(dealer_total<player_total && dealer_total>=17){
-
-					$('body').append('<div class=\"banner\">YOU WIN<div id=\"reload\">New Hand</div></div>');
-				}
-
-				else if(dealer_total===player_total && dealer_total>=17){
-
-					$('body').append('<div class=\"banner\">DEALER BUSTS<div id=\"reload\">New Hand</div></div>');
-
-				};
-
-
-				}
-
+						$('body').append('<div class=\"banner\">YOU LOSE<div id=\"reload\">New Hand</div></div>');
 				
 
-			}, 500);
-			
+					} else if(dealer_total===player_total && 17<=dealer_total<=21){
 
-			dealer_card_count=2;
-
-			while (dealer_total <17) {
-
-				random_number = Math.floor(Math.random()*(52))
-
-				if (card_dict[card_array[random_number]] === 11){
-
-					dealer_ace_count++;
-
-				}
+						$('body').append('<div class=\"banner\">PUSH<div id=\"reload\">New Hand</div></div>');
 
 
+					} else if(dealer_total<player_total && 17<=dealer_total<=21){
 
-				dealer_total = dealer_total + card_dict[card_array[random_number]]
+						$('body').append('<div class=\"banner\">YOU WIN<div id=\"reload\">New Hand</div></div>');
 
-				if(dealer_total>21 && dealer_ace_count>0){
+					}
 
-					dealer_total= dealer_total-10;
-					dealer_ace_count=dealer_ace_count-1;
-
-				}
-
-			
+					$('#reload').click(function(){
 
 
+						location.reload();
 
-			dealer_card_count = dealer_card_count + 1;
-			alert(dealer_card_count);
+					});
 
-
-				setTimeout(function(){
-
-					
-
-				$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(500+(dealer_card_count-1)*45, 10)+ 'px\"><img src=\"static/img/' 
-					+ card_array[random_number] +'\"/></div>');
-
-
-
-				
-
-			$('#dealer_total').text(dealer_total);
-
-			if(dealer_total>21){
-
-
-				$('body').append('<div class=\"banner\">DEALER BUSTS<div id=\"reload\">New Hand</div></div>');
-				
-
-			} 
-
-			else if(dealer_total>player_total && dealer_total>=17){
-
-
-				$('body').append('<div class=\"banner\">YOU LOSE<div id=\"reload\">New Hand</div></div>');
-				
-
-			} else if(dealer_total=player_total && dealer_total>=17){
-
-				$('body').append('<div class=\"banner\">PUSH<div id=\"reload\">New Hand</div></div>');
-
-
-			} else if(dealer_total<player_total && dealer_total>=17){
-
-				$('body').append('<div class=\"banner\">YOU WIN<div id=\"reload\">New Hand</div></div>');
-
-
-
-			};
-
-				
-
-				}, 500); 
-
-
-
-
-
-
-			}
+				}, 1000);
 			
 
 		});
-
 		
-		$(document).on('click', "#player_total", function(){
-
-			alert('hi');
-
-		});
-
-		
-
-
 	});
 
-
+	
 
 </script>
 
 
 </body>
-
-
-
-
 
 </html>
