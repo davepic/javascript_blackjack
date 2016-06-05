@@ -6,7 +6,8 @@ p {
 
 body {
 
-	background-color:#13D14F;
+	/*background-color:#13D14F;*/
+	background-image:url("http://zebracocktaillounge.com/wp-content/uploads/2015/02/poker-table-background.jpg");
 
 	
 
@@ -29,7 +30,7 @@ div#player_total {
 
 
 	position:absolute;
-	top:500px;
+	top:450px;
 	height:100px;
 	width:100px;
 	background-image: url("http://thumbs.dreamstime.com/t/background-felt-red-8610434.jpg");
@@ -49,7 +50,7 @@ div#dealer_total {
 
 
 	position:absolute;
-	top:200px;
+	top:150px;
 	height:100px;
 	width:100px;
 	background-image: url("http://www.morningside-village.com/img/backgrounds/felt.jpg");
@@ -221,6 +222,20 @@ div#stay:hover {
 
 }
 
+input#wager {
+
+	position:absolute;
+	top:550px;
+	left:900px;
+	height:100px;
+	width:200px;
+	font-size: 50px;
+	text-align:center;
+	background-color:grey;
+
+
+}
+
 div#card_back {
 
 	height:245px;
@@ -231,14 +246,24 @@ div#card_back {
 
 }
 
+div#money_total {
+
+	height:245px;
+	width:175px;
+	position:absolute;
+	top:50px;
+	left:900px;
+	background-color:white;
+}
+
 
 div#player_popup {
 
 	position:absolute;
-	top:400px;
+	top:350px;
 	height:100px;
 	width:100px;
-	color:black;
+	color:white;
 	font-size: 50px;
 	text-align:center;
 	vertical-align: middle;

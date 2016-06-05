@@ -24,6 +24,10 @@
 <div id="dealer_total"></div>
 <div id = "player_popup"></div>
 
+<div id ="money_total"></div>
+
+<input type="number" name="wager" id="wager" min="10" max="10000" step="10", value="10" required="true"/>
+
 
 <script type="text/javascript">
 
@@ -35,6 +39,15 @@ var ace_count = 0
 var dealer_total = 0
 var dealer_card_count = 0
 var dealer_ace_count = 0
+
+
+localStorage.setItem("name", "John");
+
+// retrieve data value
+var name = localStorage.getItem("name");
+
+
+
 
 var card_array = ["10_of_clubs.png",
  "10_of_diamonds.png",
@@ -175,6 +188,8 @@ var card_dict = {
 
 		}
 
+
+
 		
 
 		$('body').append('<div id = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
@@ -182,6 +197,11 @@ var card_dict = {
 
 		$('#hit').click(function(){
 
+
+
+			alert($('#wager').val());
+			
+			var ace_flag = false;
 			
 			if(player_total<=21){
 
@@ -202,6 +222,7 @@ var card_dict = {
 
 					player_total=player_total-10;
 					ace_count=ace_count-1;
+					ace_flag=true;
 
 				};
 
@@ -219,7 +240,17 @@ var card_dict = {
 				};
 
 				$('#player_total').text(player_total);
-				$('#player_popup').text("+" + card_dict[card_array[random_number]]);
+
+				if (ace_flag){
+
+					$('#player_popup').text("+1");
+
+				}
+				else {
+
+					$('#player_popup').text("+" + card_dict[card_array[random_number]]);
+				}
+				
 				$('#player_popup').fadeIn("fast");
 				$('#player_popup').fadeOut("fast");
 				
