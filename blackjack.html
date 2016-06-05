@@ -18,16 +18,11 @@
 <body>
 	
 
-
-
-
 <div id = "hit">HIT</div>
 <div id = "stay">STAY</div>
-
 <div id = "player_total"></div>
 <div id="dealer_total"></div>
-
-
+<div id = "player_popup"></div>
 
 
 <script type="text/javascript">
@@ -224,14 +219,18 @@ var card_dict = {
 				};
 
 				$('#player_total').text(player_total);
+				$('#player_popup').text("+" + card_dict[card_array[random_number]]);
+				$('#player_popup').fadeIn("fast");
+				$('#player_popup').fadeOut("fast");
+				
+
+
 
 				card_count = card_count + 1;
 
 			}
 
 		});
-
-
 
 		$('#stay').click(function(){
 
@@ -280,28 +279,18 @@ var card_dict = {
 
 			}
 
-
 			for (var i = 1; i<dealer_total_list.length; i++){
 
 				setTimeout(function(x) { return function() { 
-
-
-					
 
 					$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(500+(dealer_count_list[x]-1)*45, 10)+ 'px\"><img src=\"static/img/' 
 					+ dealer_card_list[x] +'\"/></div>');
 				
 					$('#dealer_total').text(dealer_total_list[x]);
 
-
-
 				}; }(i), 500*i);
 
-
 			}
-
-
-						
 
 			setTimeout(function(){
 

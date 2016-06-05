@@ -32,12 +32,14 @@ div#player_total {
 	top:500px;
 	height:100px;
 	width:100px;
-	background-color:black;
+	background-image: url("http://thumbs.dreamstime.com/t/background-felt-red-8610434.jpg");
+	border-radius:100%;
 	color:white;
 	font-size: 50px;
 	text-align:center;
 	vertical-align: middle;
 	line-height:100px;
+	box-shadow:2px 2px black;
 
 
 
@@ -50,7 +52,8 @@ div#dealer_total {
 	top:200px;
 	height:100px;
 	width:100px;
-	background-color:black;
+	background-image: url("http://www.morningside-village.com/img/backgrounds/felt.jpg");
+	border-radius: 100%;
 	color:white;
 	font-size: 50px;
 	text-align:center;
@@ -197,10 +200,6 @@ div#stay:hover {
 
 
 
-
-
-
-
 .test {
 
 	height:245px;
@@ -219,10 +218,6 @@ div#stay:hover {
 	width:175px;
 	position:absolute;
 	top:50px;
-	
-
-
-
 
 }
 
@@ -233,6 +228,22 @@ div#card_back {
 	position:absolute;
 	top:50px;
 	left:545px;
+
+}
+
+
+div#player_popup {
+
+	position:absolute;
+	top:400px;
+	height:100px;
+	width:100px;
+	color:black;
+	font-size: 50px;
+	text-align:center;
+	vertical-align: middle;
+	line-height:100px;
+	display: none;
 
 }
 
