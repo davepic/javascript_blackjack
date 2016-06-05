@@ -241,57 +241,64 @@ var card_dict = {
 			$('#card_back').css("display", "none");
 			$('#dealer_total').text(dealer_total);
 
-			var dealer_card_list = [];
-			var dealer_total_list = [];
+
+			var dealer_card_list = ['x'];
+			var dealer_total_list = ['x'];
+			var dealer_count_list = ['x'];
 
 
 			dealer_card_count = 2;
 
-				while (dealer_total < 17) {
+			while (dealer_total < 17) {
 
 		
-					random_number = Math.floor(Math.random()*(52));
+				random_number = Math.floor(Math.random()*(52));
 
-					dealer_card_list.push(card_array[random_number]);
-
+				dealer_card_list.push(card_array[random_number]);
 				
-					if (card_dict[card_array[random_number]] === 11){
+				if (card_dict[card_array[random_number]] === 11){
 
-						dealer_ace_count++;
+					dealer_ace_count++;
 
-					}
+				}
 
-					dealer_total = dealer_total + card_dict[card_array[random_number]];
+				dealer_total = dealer_total + card_dict[card_array[random_number]];
 
-					if(dealer_total>21 && dealer_ace_count>0){
+				if(dealer_total>21 && dealer_ace_count>0){
 
-						dealer_total= dealer_total-10;
-						dealer_ace_count=dealer_ace_count-1;
+					dealer_total= dealer_total-10;
+					dealer_ace_count=dealer_ace_count-1;
 
-					}
+				}
+				
+				dealer_card_count = dealer_card_count + 1;
 
-					dealer_card_count = dealer_card_count + 1;
+				dealer_count_list.push(dealer_card_count);
 
-					dealer_total_list.push(dealer_total);
-
-
-				}		
-
-				for (var i = 1; i < dealer_card_count-1; i++) {
-    				setTimeout(function(x) { return function() {
+				dealer_total_list.push(dealer_total);
 
 
+			}
 
-    				 $('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(500+(x+1)*45, 10)+ 'px\"><img src=\"static/img/' 
+
+			for (var i = 1; i<dealer_total_list.length; i++){
+
+				setTimeout(function(x) { return function() { 
+
+
+					
+
+					$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(500+(dealer_count_list[x]-1)*45, 10)+ 'px\"><img src=\"static/img/' 
 					+ dealer_card_list[x] +'\"/></div>');
 				
+					$('#dealer_total').text(dealer_total_list[x]);
 
-					$('#dealer_total').text(dealer_total_list[x-1]);
 
 
-    				}; }(i), 1000*i);
-    				
-				}
+				}; }(i), 500*i);
+
+
+			}
 
 
 						
@@ -327,7 +334,7 @@ var card_dict = {
 
 					});
 
-				}, 1000);
+				}, 500*dealer_total_list.length);
 			
 
 		});
