@@ -92,14 +92,16 @@ div#reload {
 	color:black;
 	width:100px;
 	height:50px;
-	top:225px;
-	left:450px;
+	top:325px;
+	left:625px;
 	font-size:10px;
 	cursor:pointer;
 	text-align:center;
 	vertical-align: center;
 	line-height:50px;
 	border:1px solid black;
+	display:none;
+	
 
 
 
@@ -236,7 +238,7 @@ input#wager {
 
 }
 
-div#card_back {
+.card_back {
 
 	height:245px;
 	width:175px;
@@ -254,6 +256,12 @@ div#money_total {
 	top:50px;
 	left:900px;
 	background-color:white;
+	text-align:center;
+	vertical-align: middle;
+	line-height:245px;
+	font-size: 100px;
+	background-color:grey;
+	border:5px solid black	;
 }
 
 

@@ -24,7 +24,9 @@
 <div id="dealer_total"></div>
 <div id = "player_popup"></div>
 
-<div id ="money_total"></div>
+<div id="reload">New Hand</div>
+
+<div id ="money_total">0</div>
 
 <input type="number" name="wager" id="wager" min="10" max="10000" step="10", value="10" required="true"/>
 
@@ -41,10 +43,10 @@ var dealer_card_count = 0
 var dealer_ace_count = 0
 
 
-localStorage.setItem("name", "John");
+localStorage.setItem("total", $('#money_total').text());
 
-// retrieve data value
-var name = localStorage.getItem("name");
+
+/*var name = localStorage.getItem("name");*/
 
 
 
@@ -165,6 +167,8 @@ var card_dict = {
 	$(document).ready(function(){
 
 
+		$('#money_total').text(localStorage.getItem("total"));
+
 		for(var i = 0; i<2;i++){
 
 			random_number = Math.floor(Math.random()*(52));
@@ -192,14 +196,13 @@ var card_dict = {
 
 		
 
-		$('body').append('<div id = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
+		$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
+
+		
 
 
 		$('#hit').click(function(){
 
-
-
-			alert($('#wager').val());
 			
 			var ace_flag = false;
 			
@@ -228,14 +231,11 @@ var card_dict = {
 
 				if(player_total>21){
 
-					$('body').append('<div class=\"banner\">You LOSE<div id=\"reload\">New Hand</div></div>');
+					$('body').append('<div class=\"banner\">You LOSE</div>');
 
-					$('#reload').click(function(){
+					$('#reload').css("display", "unset");
+					$('#reload').css('z-index', 9999);
 
-
-						location.reload();
-
-					});
 				
 				};
 
@@ -268,7 +268,7 @@ var card_dict = {
 
 			$('#hit').css("display", "none");
 			$('#stay').css("display", "none");
-			$('#card_back').css("display", "none");
+			$('.card_back').css("display", "none");
 			$('#dealer_total').text(dealer_total);
 
 
@@ -325,42 +325,104 @@ var card_dict = {
 
 			setTimeout(function(){
 
+				
+				
+				var current_total = parseInt(localStorage.getItem("total"), 10);
+				
+				var new_total = parseInt($('#wager').val(), 10)+ current_total;
+					
+
 					if(dealer_total>21){
 
-						$('body').append('<div class=\"banner\">DEALER BUSTS<div id=\"reload\">New Hand</div></div>');
+						$('body').append('<div class=\"banner\">DEALER BUSTS</div>');
+						$('#money_total').text(new_total.toString());
+						localStorage.setItem("total", $('#money_total').text());
+
 
 					} 
 
 					else if((dealer_total>player_total) && (17<=dealer_total<=21)){
 
-						$('body').append('<div class=\"banner\">YOU LOSE<div id=\"reload\">New Hand</div></div>');
+						$('body').append('<div class=\"banner\">YOU LOSE</div>');
 				
 
 					} else if(dealer_total===player_total && 17<=dealer_total<=21){
 
-						$('body').append('<div class=\"banner\">PUSH<div id=\"reload\">New Hand</div></div>');
+						$('body').append('<div class=\"banner\">PUSH</div>');
 
 
 					} else if(dealer_total<player_total && 17<=dealer_total<=21){
 
-						$('body').append('<div class=\"banner\">YOU WIN<div id=\"reload\">New Hand</div></div>');
+						$('body').append('<div class=\"banner\">YOU WIN</div>');
 
 					}
 
-					$('#reload').click(function(){
-
-
-						location.reload();
-
-					});
+					$('#reload').css("display", "unset");
+					$('#reload').css('z-index', 9999);
+					
 
 				}, 500*dealer_total_list.length);
+
+
 			
 
 		});
-		
-	});
 
+
+		$('#reload').click(function(){
+
+			$('#hit').css("display", "unset");
+			$('#stay').css("display", "unset");
+			$('.test').css("display", "none");
+			$('.dealer_div').css("display", "none");
+			$('.banner').css("display", "none");
+			$('#player_total').text("");
+			$('.card_back').css("display", "none");
+			$('#reload').css("display", "none");
+
+						
+			card_count = 0
+			random_number= 0
+			player_total = 0
+			ace_count = 0
+			dealer_total = 0
+			dealer_card_count = 0
+			dealer_ace_count = 0
+
+			for(var i = 0; i<2;i++){
+
+				random_number = Math.floor(Math.random()*(52));
+
+			if (card_dict[card_array[random_number]] === 11){
+
+				dealer_ace_count++;
+
+			}
+
+			$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(500+i*45, 10)+ 'px\"><img src=\"static/img/' 
+				+ card_array[random_number] +'\"/></div>');
+
+			if (i === 0){
+
+				$('#dealer_total').text(card_dict[card_array[random_number]]);
+
+			}
+
+			dealer_total = dealer_total + card_dict[card_array[random_number]];
+
+			}
+
+
+			$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>'); 
+
+
+						
+
+		});
+
+		
+	
+});
 	
 
 </script>
