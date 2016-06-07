@@ -27,9 +27,18 @@
 
 <div id="reload">New Hand</div>
 
-<div id ="money_total">0</div>
 
-<input type="number" name="wager" id="wager" min="10" max="10000" step="10", value="10" required="true"/>
+<table id="money_table">
+  
+  <tr>
+    <td>Money Total</td>
+    <td id ="money_total">0</td>
+    <td>Wager</td>
+    <td><input type="number" name="wager" id="wager" min="10" max="10000" step="10" value="10" required="true"/></td>
+  </tr>
+</table>
+
+<!--<input type="number" name="wager" id="wager" min="10" max="10000" step="10", value="10" required="true"/> !-->
 
 
 <script type="text/javascript">
@@ -45,12 +54,6 @@ var dealer_ace_count = 0
 
 
 localStorage.setItem("total", $('#money_total').text());
-
-
-/*var name = localStorage.getItem("name");*/
-
-
-
 
 var card_array = ["10_of_clubs.png",
  "10_of_diamonds.png",
@@ -164,7 +167,6 @@ var card_dict = {
 }
 	
 
-
 	$(document).ready(function(){
 
 
@@ -193,14 +195,11 @@ var card_dict = {
 
 		}
 
-
-
-		
-
 		$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
 
-		
 
+	/* --------------------------------------------------------------------------------------------------------------- */
+	/* --------------------------------------------------------------------------------------------------------------- */	
 
 		$('#hit').click(function(){
 
@@ -260,7 +259,8 @@ var card_dict = {
 				}
 				
 				$('#player_popup').fadeIn("fast");
-				$('#player_popup').fadeOut("fast");
+				$('#player_popup').fadeOut("fast"); 
+				
 				
 
 
@@ -270,6 +270,11 @@ var card_dict = {
 			}
 
 		});
+
+
+	/* --------------------------------------------------------------------------------------------------------------- */
+	/* --------------------------------------------------------------------------------------------------------------- */
+	
 
 		$('#stay').click(function(){
 
@@ -402,7 +407,9 @@ var card_dict = {
 
 		});
 
-
+	/* --------------------------------------------------------------------------------------------------------------- */
+	/* --------------------------------------------------------------------------------------------------------------- */
+	
 		$('#reload').click(function(){
 
 			$('#hit').css("display", "unset");
@@ -448,8 +455,6 @@ var card_dict = {
 
 
 			$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>'); 
-
-
 						
 
 		});

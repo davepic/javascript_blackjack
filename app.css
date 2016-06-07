@@ -227,14 +227,10 @@ div#stay:hover {
 
 input#wager {
 
-	position:absolute;
-	top:550px;
-	left:900px;
-	height:100px;
-	width:200px;
-	font-size: 50px;
+	background-color:white;
+	width:100px;
 	text-align:center;
-	background-color:grey;
+	font-size:20px;
 
 
 }
@@ -249,21 +245,6 @@ input#wager {
 
 }
 
-div#money_total {
-
-	height:245px;
-	width:175px;
-	position:absolute;
-	top:50px;
-	left:900px;
-	background-color:white;
-	text-align:center;
-	vertical-align: middle;
-	line-height:245px;
-	font-size: 100px;
-	background-color:grey;
-	border:5px solid black	;
-}
 
 
 div#player_popup {
@@ -280,6 +261,24 @@ div#player_popup {
 	display: none;
 
 }
+
+table#money_table {
+
+	position:absolute;
+	top:0px;
+	left:0px;
+	background-color:black;
+	color:white;
+	width:1275px;
+	height:30px;
+	font-size:20px;
+	text-align:center;
+	font-family:Verdana;
+
+
+}
+
+
 
 
 div#dealer_popup {
