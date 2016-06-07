@@ -23,6 +23,7 @@
 <div id = "player_total"></div>
 <div id="dealer_total"></div>
 <div id = "player_popup"></div>
+<div id="dealer_popup"></div>
 
 <div id="reload">New Hand</div>
 
@@ -273,10 +274,17 @@ var card_dict = {
 		$('#stay').click(function(){
 
 
+			var ace_flag = false;
+
 			$('#hit').css("display", "none");
 			$('#stay').css("display", "none");
 			$('.card_back').css("display", "none");
+
+			var second_value = dealer_total - $('#dealer_total').text();
 			$('#dealer_total').text(dealer_total);
+			$('#dealer_popup').text("+" + second_value);
+			$('#dealer_popup').fadeIn("fast");
+			$('#dealer_popup').fadeOut("fast");
 
 
 			var dealer_card_list = ['x'];
@@ -305,6 +313,7 @@ var card_dict = {
 
 					dealer_total= dealer_total-10;
 					dealer_ace_count=dealer_ace_count-1;
+					ace_flag=true;
 
 				}
 				
@@ -325,6 +334,20 @@ var card_dict = {
 					+ dealer_card_list[x] +'\"/></div>');
 				
 					$('#dealer_total').text(dealer_total_list[x]);
+
+
+					if (ace_flag){
+
+					$('#dealer_popup').text("+1");
+
+					}
+					else {
+
+					$('#dealer_popup').text("+" + card_dict[dealer_card_list[x]]);
+				}
+				
+				$('#dealer_popup').fadeIn("fast");
+				$('#dealer_popup').fadeOut("fast");
 
 				}; }(i), 500*i);
 
