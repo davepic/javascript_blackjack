@@ -24,6 +24,7 @@
 <div id="dealer_total"></div>
 <div id = "player_popup"></div>
 <div id="dealer_popup"></div>
+<div id="start">Start</div>
 
 <div id="reload">New Hand</div>
 
@@ -313,7 +314,16 @@ var card_dict = {
 
 	/* --------------------------------------------------------------------------------------------------------------- */
 	/* --------------------------------------------------------------------------------------------------------------- */
-	
+		
+
+		$('#start').click(function(){
+
+
+			$('#hit').css("display", "unset");
+			$('#stay').css("display", "unset");
+
+
+		});
 
 		$('#stay').click(function(){
 

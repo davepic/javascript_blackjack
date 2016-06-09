@@ -159,6 +159,7 @@ div#hit {
 	line-height: 50px;
 	cursor:pointer;
 	box-shadow: 2px 2px black;
+	display:none;
 
 
 
@@ -166,6 +167,37 @@ div#hit {
 }
 
 div#hit:hover {
+
+	background-color:yellow;
+
+}
+
+
+div#start {
+
+
+	font-size:25px;
+	width:100px;
+	height:50px;
+	position:absolute;
+	top:325px;
+	left:625px;
+	font-family:Arial sans-serif;
+	background-color:white;
+	color:black;
+	border:1px solid black;
+	text-align:center;
+	vertical-align: center;
+	line-height: 50px;
+	cursor:pointer;
+	box-shadow: 2px 2px black;
+
+
+
+
+}
+
+div#start:hover {
 
 	background-color:yellow;
 
@@ -190,6 +222,7 @@ div#stay {
 	line-height: 50px;
 	cursor:pointer;
 	box-shadow: 2px 2px black;
+	display:none;
 
 
 
