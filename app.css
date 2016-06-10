@@ -108,38 +108,6 @@ div#reload {
 }
 
 
-div#dealer_hit {
-
-
-	font-size:25px;
-	width:100px;
-	height:50px;
-	position:absolute;
-	top:625px;
-	left:625px;
-	font-family:Arial sans-serif;
-	background-color:white;
-	color:black;
-	border:1px solid black;
-	text-align:center;
-	vertical-align: center;
-	line-height: 50px;
-	cursor:pointer;
-	box-shadow: 2px 2px black;
-
-
-
-
-}
-
-div#dealer_hit:hover {
-
-	background-color:yellow;
-
-}
-
-
-
 
 div#hit {
 
@@ -150,7 +118,7 @@ div#hit {
 	position:absolute;
 	top:625px;
 	left:375px;
-	font-family:Arial sans-serif;
+	font-family:Verdana;
 	background-color:white;
 	color:black;
 	border:1px solid black;
@@ -182,7 +150,7 @@ div#start {
 	position:absolute;
 	top:325px;
 	left:625px;
-	font-family:Arial sans-serif;
+	font-family:Verdana;
 	background-color:white;
 	color:black;
 	border:1px solid black;
@@ -213,7 +181,7 @@ div#stay {
 	position:absolute;
 	top:625px;
 	left:500px;
-	font-family:Arial sans-serif;
+	font-family:Verdana;
 	background-color:white;
 	color:black;
 	border:1px solid black;
@@ -238,13 +206,13 @@ div#stay:hover {
 div#double_down {
 
 
-	font-size:15px;
+	font-size:10px;
 	width:100px;
 	height:50px;
 	position:absolute;
 	top:625px;
 	left:625px;
-	font-family:Arial sans-serif;
+	font-family:Verdana;
 	background-color:white;
 	color:black;
 	border:1px solid black;
@@ -275,7 +243,7 @@ div#split {
 	position:absolute;
 	top:625px;
 	left:750px;
-	font-family:Arial sans-serif;
+	font-family:Verdana;
 	background-color:white;
 	color:black;
 	border:1px solid black;
