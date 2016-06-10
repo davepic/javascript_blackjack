@@ -431,7 +431,7 @@ var card_dict = {
 
 				setTimeout(function(x) { return function() { 
 
-					$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(500+(dealer_count_list[x]-1)*45, 10)+ 'px\"><img src=\"static/img/' 
+					$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(500+(dealer_count_list[x]-2)*45, 10)+ 'px\"><img src=\"static/img/' 
 					+ dealer_card_list[x] +'\"/></div>');
 				
 					$('#dealer_total').text(dealer_total_list[x]);
@@ -508,8 +508,10 @@ var card_dict = {
 	
 		$('#reload').click(function(){
 
-			$('#hit').css("display", "unset");
-			$('#stay').css("display", "unset");
+
+			$('#dealer_total').text("");
+			$('#hit').css("display", "none");
+			$('#stay').css("display", "none");
 			$('.test').css("display", "none");
 			$('.dealer_div').css("display", "none");
 			$('.banner').css("display", "none");
