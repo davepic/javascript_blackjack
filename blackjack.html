@@ -51,6 +51,8 @@ var ace_count = 0
 var dealer_total = 0
 var dealer_card_count = 0
 var dealer_ace_count = 0
+var player_card_count = 0
+var player_ace_count = 0
 
 
 localStorage.setItem("total", $('#money_total').text());
@@ -170,13 +172,6 @@ var card_dict = {
 	$(document).ready(function(){
 
 
-		
-
-
-
-		
-
-
 	/* --------------------------------------------------------------------------------------------------------------- */
 	/* --------------------------------------------------------------------------------------------------------------- */	
 
@@ -189,7 +184,7 @@ var card_dict = {
 
 				random_number = Math.floor(Math.random()*(52));
 
-				$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+card_count*45, 10)+ 'px\"><img src=\"static/img/' 
+				$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+(card_count+1)*45, 10)+ 'px\"><img src=\"static/img/' 
 					+ card_array[random_number] +'\"/></div>');
 
 				if (card_dict[card_array[random_number]] === 11){
@@ -241,9 +236,6 @@ var card_dict = {
 				$('#player_popup').fadeOut("fast"); 
 				
 				
-
-
-
 				card_count = card_count + 1;
 
 			}
@@ -258,13 +250,17 @@ var card_dict = {
 		$('#start').click(function(){
 
 
-			$('#hit').css("display", "unset");
-			$('#stay').css("display", "unset");
+			
 			$('#start').css("display", "none");
 
 			var dealer_card_list = ['x'];
 			var dealer_total_list = ['x'];
 			var dealer_count_list = ['x'];
+
+			var player_card_list = ['x'];
+			var player_total_list = ['x'];
+			var player_count_list = ['x'];
+
 
 
 			$('#money_total').text(localStorage.getItem("total"));
@@ -280,12 +276,6 @@ var card_dict = {
 
 				}
 
-
-				if (i === 0){
-
-					$('#dealer_total').text(card_dict[card_array[random_number]]);
-
-				}
 
 				dealer_total = dealer_total + card_dict[card_array[random_number]];
 
@@ -308,24 +298,79 @@ var card_dict = {
 
 						$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
 
+
 					}
 				
 					
 				if (x===1){
 
-					$('#dealer_total').text(dealer_total_list[x]);
-					$('#dealer_popup').text("+" + card_dict[dealer_card_list[x]]);
-					$('#dealer_popup').fadeIn("fast");
-					$('#dealer_popup').fadeOut("fast");
+						$('#dealer_total').text(dealer_total_list[1]);
+						$('#dealer_popup').text("+" + card_dict[dealer_card_list[x]]);
+						$('#dealer_popup').fadeIn("fast");
+						$('#dealer_popup').fadeOut("fast");
 
 				}
-			
 
-				}; } (i), 500*i);
+				}; } (i), 1000*i);
+
+			}
+
+
+			for(var i = 0; i<2;i++){
+
+				random_number = Math.floor(Math.random()*(52));
+				player_card_list.push(card_array[random_number]);
+
+				if (card_dict[card_array[random_number]] === 11){
+
+					player_ace_count++;
+
+				}
+
+
+				player_total = player_total + card_dict[card_array[random_number]];
+
+				player_card_count++;
+
+				player_total_list.push(player_total);
+				player_count_list.push(player_card_count);
+
+			}
+
+			for (var i = 1; i<player_total_list.length; i++){
+
+
+				setTimeout(function(x) { return function() { 
+
+				
+					$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+(dealer_count_list[x]-2)*45, 10)+ 'px\"><img src=\"static/img/' 
+					+ player_card_list[x] +'\"/></div>');
+
+
+
+					$('#player_total').text(player_total_list[x]);
+					$('#player_popup').text("+" + card_dict[player_card_list[x]]);
+					$('#player_popup').fadeIn("fast");
+					$('#player_popup').fadeOut("fast");
+
+					if (x===2){
+
+
+						$('#hit').css("display", "unset");
+						$('#stay').css("display", "unset");
+
+					}
+
+
+				}; } (i), 1500*i);
 
 			}
 
 		});
+
+	/* -----------------------------------------------------------------------------------------------------------------*/
+	/* ------------------------------------------------------------------------------------------------------------------*/
+
 
 		$('#stay').click(function(){
 
@@ -473,46 +518,134 @@ var card_dict = {
 			$('#reload').css("display", "none");
 
 						
-			card_count = 0
-			random_number= 0
-			player_total = 0
-			ace_count = 0
-			dealer_total = 0
-			dealer_card_count = 0
-			dealer_ace_count = 0
+			card_count = 0;
+			random_number= 0;
+			player_total = 0;
+			ace_count = 0;
+			dealer_total = 0;
+			dealer_card_count = 0;
+			dealer_ace_count = 0;
+			player_card_count = 0;
+			player_ace_count = 0;
+			player_total = 0;
+
+			var dealer_card_list = ['x'];
+			var dealer_total_list = ['x'];
+			var dealer_count_list = ['x'];
+
+			var player_card_list = ['x'];
+			var player_total_list = ['x'];
+			var player_count_list = ['x'];
 
 			for(var i = 0; i<2;i++){
 
 				random_number = Math.floor(Math.random()*(52));
+				dealer_card_list.push(card_array[random_number]);
 
-			if (card_dict[card_array[random_number]] === 11){
+				if (card_dict[card_array[random_number]] === 11){
 
-				dealer_ace_count++;
+					dealer_ace_count++;
 
-			}
+				}
 
-			$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(500+i*45, 10)+ 'px\"><img src=\"static/img/' 
-				+ card_array[random_number] +'\"/></div>');
 
-			if (i === 0){
+				dealer_total = dealer_total + card_dict[card_array[random_number]];
 
-				$('#dealer_total').text(card_dict[card_array[random_number]]);
+				dealer_card_count++;
 
-			}
-
-			dealer_total = dealer_total + card_dict[card_array[random_number]];
+				dealer_total_list.push(dealer_total);
+				dealer_count_list.push(dealer_card_count);
 
 			}
 
+			for (var i = 1; i<dealer_total_list.length; i++){
 
-			$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>'); 
+
+				setTimeout(function(x) { return function() { 
+
+					$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(460+(dealer_count_list[x]-1)*45, 10)+ 'px\"><img src=\"static/img/' 
+					+ dealer_card_list[x] +'\"/></div>');
+
+					if (x===2){
+
+						$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
+
+
+					}
+				
+					
+				if (x===1){
+
+						$('#dealer_total').text(dealer_total_list[1]);
+						$('#dealer_popup').text("+" + card_dict[dealer_card_list[x]]);
+						$('#dealer_popup').fadeIn("fast");
+						$('#dealer_popup').fadeOut("fast");
+
+				}
+
+				}; } (i), 1000*i);
+
+			}
+
+			
+
+			for(var i = 0; i<2;i++){
+
+				random_number = Math.floor(Math.random()*(52));
+				player_card_list.push(card_array[random_number]);
+
+				if (card_dict[card_array[random_number]] === 11){
+
+					player_ace_count++;
+
+				}
+
+
+				player_total = player_total + card_dict[card_array[random_number]];
+
+				player_card_count++;
+
+				player_total_list.push(player_total);
+				player_count_list.push(player_card_count);
+
+			}
+
+			for (var i = 1; i<player_total_list.length; i++){
+
+
+				setTimeout(function(x) { return function() { 
+
+				
+					$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+(dealer_count_list[x]-2)*45, 10)+ 'px\"><img src=\"static/img/' 
+					+ player_card_list[x] +'\"/></div>');
+
+
+
+					$('#player_total').text(player_total_list[x]);
+					$('#player_popup').text("+" + card_dict[player_card_list[x]]);
+					$('#player_popup').fadeIn("fast");
+					$('#player_popup').fadeOut("fast");
+
+
+					if (x===2){
+
+
+						$('#hit').css("display", "unset");
+						$('#stay').css("display", "unset");
 						
+					}
 
-		});
+
+				}; } (i), 1500*i);
+
+			} 
 
 		
-	
+
 });
+});		
+	
+
 	
 
 </script>
