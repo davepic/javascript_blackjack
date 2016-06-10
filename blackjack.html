@@ -170,68 +170,7 @@ var card_dict = {
 	$(document).ready(function(){
 
 
-		var dealer_card_list = ['x'];
-		var dealer_total_list = ['x'];
-		var dealer_count_list = ['x'];
-
-
-		$('#money_total').text(localStorage.getItem("total"));
-
-		for(var i = 0; i<2;i++){
-
-			random_number = Math.floor(Math.random()*(52));
-			dealer_card_list.push(card_array[random_number]);
-
-			if (card_dict[card_array[random_number]] === 11){
-
-				dealer_ace_count++;
-
-			}
-
-
-			if (i === 0){
-
-				$('#dealer_total').text(card_dict[card_array[random_number]]);
-
-			}
-
-			dealer_total = dealer_total + card_dict[card_array[random_number]];
-
-			dealer_card_count++;
-
-			dealer_total_list.push(dealer_total);
-			dealer_count_list.push(dealer_card_count);
-
-		}
-
-		for (var i = 1; i<dealer_total_list.length; i++){
-
-
-				setTimeout(function(x) { return function() { 
-
-					$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(460+(dealer_count_list[x]-1)*45, 10)+ 'px\"><img src=\"static/img/' 
-					+ dealer_card_list[x] +'\"/></div>');
-
-					if (x===2){
-
-						$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
-
-					}
-				
-					
-				if (x===1){
-
-					$('#dealer_total').text(dealer_total_list[x]);
-					$('#dealer_popup').text("+" + card_dict[dealer_card_list[x]]);
-					$('#dealer_popup').fadeIn("fast");
-					$('#dealer_popup').fadeOut("fast");
-
-				}
-			
-
-				}; } (i), 500*i);
-
-			}
+		
 
 
 
@@ -321,7 +260,70 @@ var card_dict = {
 
 			$('#hit').css("display", "unset");
 			$('#stay').css("display", "unset");
+			$('#start').css("display", "none");
 
+			var dealer_card_list = ['x'];
+			var dealer_total_list = ['x'];
+			var dealer_count_list = ['x'];
+
+
+			$('#money_total').text(localStorage.getItem("total"));
+
+			for(var i = 0; i<2;i++){
+
+				random_number = Math.floor(Math.random()*(52));
+				dealer_card_list.push(card_array[random_number]);
+
+				if (card_dict[card_array[random_number]] === 11){
+
+					dealer_ace_count++;
+
+				}
+
+
+				if (i === 0){
+
+					$('#dealer_total').text(card_dict[card_array[random_number]]);
+
+				}
+
+				dealer_total = dealer_total + card_dict[card_array[random_number]];
+
+				dealer_card_count++;
+
+				dealer_total_list.push(dealer_total);
+				dealer_count_list.push(dealer_card_count);
+
+			}
+
+			for (var i = 1; i<dealer_total_list.length; i++){
+
+
+				setTimeout(function(x) { return function() { 
+
+					$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(460+(dealer_count_list[x]-1)*45, 10)+ 'px\"><img src=\"static/img/' 
+					+ dealer_card_list[x] +'\"/></div>');
+
+					if (x===2){
+
+						$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
+
+					}
+				
+					
+				if (x===1){
+
+					$('#dealer_total').text(dealer_total_list[x]);
+					$('#dealer_popup').text("+" + card_dict[dealer_card_list[x]]);
+					$('#dealer_popup').fadeIn("fast");
+					$('#dealer_popup').fadeOut("fast");
+
+				}
+			
+
+				}; } (i), 500*i);
+
+			}
 
 		});
 
