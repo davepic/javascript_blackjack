@@ -193,16 +193,16 @@ var card_dict = {
 
 				if (card_dict[card_array[random_number]] === 11){
 
-					ace_count++;
+					player_ace_count++;
 
 				};
 
 				player_total = player_total + card_dict[card_array[random_number]];
 
-				if(player_total>21 && ace_count>0){
+				if(player_total>21 && player_ace_count>0){
 
 					player_total=player_total-10;
-					ace_count=ace_count-1;
+					player_ace_count=player_ace_count-1;
 					ace_flag=true;
 
 				};
@@ -525,6 +525,7 @@ var card_dict = {
 			$('.card_back').css("display", "none");
 			$('#reload').css("display", "none");
 			$('#double_down').css("display", "none");
+			$('#split').css("display", "none");
 
 						
 			card_count = 0;
