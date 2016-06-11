@@ -188,7 +188,7 @@ var card_dict = {
 
 				random_number = Math.floor(Math.random()*(52));
 
-				$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+(card_count+1)*45, 10)+ 'px\"><img src=\"static/img/' 
+				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(400+(card_count+1)*45, 10)+ 'px\"><img src=\"static/img/' 
 					+ card_array[random_number] +'\"/></div>');
 
 				if (card_dict[card_array[random_number]] === 11){
@@ -265,6 +265,9 @@ var card_dict = {
 			var player_total_list = ['x'];
 			var player_count_list = ['x'];
 
+			var dealer_ace_flag = false;
+			var player_ace_flag = false;
+
 
 
 			$('#money_total').text(localStorage.getItem("total"));
@@ -282,6 +285,15 @@ var card_dict = {
 
 
 				dealer_total = dealer_total + card_dict[card_array[random_number]];
+
+				if(dealer_total>21 && dealer_ace_count>0){
+
+					dealer_total=dealer_total-10;
+					dealer_ace_count=dealer_ace_count-1;
+					dealer_ace_flag = true;
+					
+
+				};
 
 				dealer_card_count++;
 
@@ -331,8 +343,17 @@ var card_dict = {
 
 				}
 
-
 				player_total = player_total + card_dict[card_array[random_number]];
+
+				if(player_total>21 && player_ace_count>0){
+
+					player_total=player_total-10;
+					player_ace_count=player_ace_count-1;
+					player_ace_flag = true;
+					
+
+				};
+
 
 				player_card_count++;
 
@@ -347,13 +368,23 @@ var card_dict = {
 				setTimeout(function(x) { return function() { 
 
 				
-					$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+(dealer_count_list[x]-2)*45, 10)+ 'px\"><img src=\"static/img/' 
+					$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(400+(dealer_count_list[x]-2)*45, 10)+ 'px\"><img src=\"static/img/' 
 					+ player_card_list[x] +'\"/></div>');
 
 
 
 					$('#player_total').text(player_total_list[x]);
-					$('#player_popup').text("+" + card_dict[player_card_list[x]]);
+
+					if(x===2 && player_ace_flag){
+
+						$('#player_popup').text("+1");
+
+					} else{
+
+						$('#player_popup').text("+" + card_dict[player_card_list[x]]);
+						
+					}
+					
 					$('#player_popup').fadeIn("fast");
 					$('#player_popup').fadeOut("fast");
 
@@ -385,6 +416,8 @@ var card_dict = {
 
 			$('#hit').css("display", "none");
 			$('#stay').css("display", "none");
+			$('#double_down').css("display", "none");
+			$('#split').css("display", "none");
 			$('.card_back').css("display", "none");
 
 			var second_value = dealer_total - $('#dealer_total').text();
@@ -518,7 +551,7 @@ var card_dict = {
 			$('#dealer_total').text("");
 			$('#hit').css("display", "none");
 			$('#stay').css("display", "none");
-			$('.test').css("display", "none");
+			$('.player_div').css("display", "none");
 			$('.dealer_div').css("display", "none");
 			$('.banner').css("display", "none");
 			$('#player_total').text("");
@@ -626,7 +659,7 @@ var card_dict = {
 				setTimeout(function(x) { return function() { 
 
 				
-					$('body').append('<div class=\"test\" style =\"left:' + parseInt(400+(dealer_count_list[x]-2)*45, 10)+ 'px\"><img src=\"static/img/' 
+					$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(400+(dealer_count_list[x]-2)*45, 10)+ 'px\"><img src=\"static/img/' 
 					+ player_card_list[x] +'\"/></div>');
 
 

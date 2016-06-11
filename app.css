@@ -6,11 +6,7 @@ p {
 
 body {
 
-	/*background-color:#13D14F;*/
 	background-image:url("http://zebracocktaillounge.com/wp-content/uploads/2015/02/poker-table-background.jpg");
-
-	
-
 
 }
 
@@ -102,9 +98,6 @@ div#reload {
 	border:1px solid black;
 	display:none;
 	
-
-
-
 }
 
 
@@ -128,8 +121,6 @@ div#hit {
 	cursor:pointer;
 	box-shadow: 2px 2px black;
 	display:none;
-
-
 
 
 }
@@ -224,8 +215,6 @@ div#double_down {
 	display:none;
 
 
-
-
 }
 
 div#double_down:hover {
@@ -267,7 +256,7 @@ div#split:hover {
 
 
 
-.test {
+.player_div {
 
 	height:245px;
 	width:175px;
