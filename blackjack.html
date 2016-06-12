@@ -116,6 +116,8 @@ var card_array = ["10_of_clubs.png",
 
 
 
+
+
 var card_dict = {
 
 "10_of_clubs.png": 10,
@@ -176,80 +178,6 @@ var card_dict = {
 	$(document).ready(function(){
 
 
-	/* --------------------------------------------------------------------------------------------------------------- */
-	/* --------------------------------------------------------------------------------------------------------------- */	
-
-		$('#hit').click(function(){
-
-			
-			var ace_flag = false;
-			
-			if(player_total<=21){
-
-				random_number = Math.floor(Math.random()*(52));
-
-				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(400+(card_count+1)*45, 10)+ 'px\"><img src=\"static/img/' 
-					+ card_array[random_number] +'\"/></div>');
-
-				if (card_dict[card_array[random_number]] === 11){
-
-					player_ace_count++;
-
-				};
-
-				player_total = player_total + card_dict[card_array[random_number]];
-
-				if(player_total>21 && player_ace_count>0){
-
-					player_total=player_total-10;
-					player_ace_count=player_ace_count-1;
-					ace_flag=true;
-
-				};
-
-				if(player_total>21){
-
-
-					var current_total = parseInt(localStorage.getItem("total"), 10);
-
-					$('body').append('<div class=\"banner\">You LOSE</div>');
-
-					var new_total = current_total - parseInt($('#wager').val(), 10);
-					$('#money_total').text(new_total.toString());
-					localStorage.setItem("total", $('#money_total').text());
-
-					$('#reload').css("display", "unset");
-					$('#reload').css('z-index', 9999);
-
-				
-				};
-
-				$('#player_total').text(player_total);
-
-				if (ace_flag){
-
-					$('#player_popup').text("+1");
-
-				}
-				else {
-
-					$('#player_popup').text("+" + card_dict[card_array[random_number]]);
-				}
-				
-				$('#player_popup').fadeIn("fast");
-				$('#player_popup').fadeOut("fast"); 
-				
-				
-				card_count = card_count + 1;
-
-			}
-
-		});
-
-
-	/* --------------------------------------------------------------------------------------------------------------- */
-	/* --------------------------------------------------------------------------------------------------------------- */
-		
 
 		$('#start').click(function(){
 
@@ -347,10 +275,14 @@ var card_dict = {
 
 				if(player_total>21 && player_ace_count>0){
 
+					alert("player total: " + player_total);
+
+
 					player_total=player_total-10;
 					player_ace_count=player_ace_count-1;
 					player_ace_flag = true;
 					
+					alert("player_total: " + player_total);
 
 				};
 
@@ -379,10 +311,11 @@ var card_dict = {
 
 						$('#player_popup').text("+1");
 
-					} else{
+					} else
+					{
 
 						$('#player_popup').text("+" + card_dict[player_card_list[x]]);
-						
+
 					}
 					
 					$('#player_popup').fadeIn("fast");
@@ -404,6 +337,77 @@ var card_dict = {
 			}
 
 		});
+
+
+	/* --------------------------------------------------------------------------------------------------------------- */
+	/* --------------------------------------------------------------------------------------------------------------- */	
+
+		$('#hit').click(function(){
+
+			
+			var ace_flag = false;
+			
+			if(player_total<=21){
+
+				random_number = Math.floor(Math.random()*(52));
+
+				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(400+(card_count+1)*45, 10)+ 'px\"><img src=\"static/img/' 
+					+ card_array[random_number] +'\"/></div>');
+
+				if (card_dict[card_array[random_number]] === 11){
+
+					player_ace_count++;
+
+				};
+
+				player_total = player_total + card_dict[card_array[random_number]];
+
+				if(player_total>21 && player_ace_count>0){
+
+					player_total=player_total-10;
+					player_ace_count=player_ace_count-1;
+					ace_flag=true;
+
+				};
+
+				if(player_total>21){
+
+
+					var current_total = parseInt(localStorage.getItem("total"), 10);
+
+					$('body').append('<div class=\"banner\">You LOSE</div>');
+
+					var new_total = current_total - parseInt($('#wager').val(), 10);
+					$('#money_total').text(new_total.toString());
+					localStorage.setItem("total", $('#money_total').text());
+
+					$('#reload').css("display", "unset");
+					$('#reload').css('z-index', 9999);
+
+				
+				};
+
+				$('#player_total').text(player_total);
+
+				if (ace_flag){
+
+					$('#player_popup').text("+1");
+
+				}
+				else {
+
+					$('#player_popup').text("+" + card_dict[card_array[random_number]]);
+				}
+				
+				$('#player_popup').fadeIn("fast");
+				$('#player_popup').fadeOut("fast"); 
+				
+				
+				card_count = card_count + 1;
+
+			}
+
+		});		
 
 	/* -----------------------------------------------------------------------------------------------------------------*/
 	/* ------------------------------------------------------------------------------------------------------------------*/
@@ -687,7 +691,18 @@ var card_dict = {
 
 		
 
-});
+		});
+
+
+
+		$('#double_down').click(function(){
+
+
+
+
+		});
+
+
 });		
 	
 
