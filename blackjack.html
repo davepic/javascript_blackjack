@@ -275,14 +275,10 @@ var card_dict = {
 
 				if(player_total>21 && player_ace_count>0){
 
-					alert("player total: " + player_total);
-
-
 					player_total=player_total-10;
 					player_ace_count=player_ace_count-1;
 					player_ace_flag = true;
 					
-					alert("player_total: " + player_total);
 
 				};
 
@@ -343,6 +339,9 @@ var card_dict = {
 	/* --------------------------------------------------------------------------------------------------------------- */	
 
 		$('#hit').click(function(){
+
+			$('#double_down').css("display", "none");
+			$('#split').css("display", "none");
 
 			
 			var ace_flag = false;
@@ -696,6 +695,19 @@ var card_dict = {
 
 
 		$('#double_down').click(function(){
+
+
+			$('#hit').css("display", "none");
+			$('#stay').css("display", "none");
+			$('#double_down').css("display", "none");
+			$('#split').css("display", "none");
+
+			var double_total = parseInt($('#wager').val(), 10)*2;
+
+			$('#wager').val(double_total);
+
+
+
 
 
 
