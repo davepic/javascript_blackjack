@@ -196,6 +196,8 @@ var card_dict = {
 			var dealer_ace_flag = false;
 			var player_ace_flag = false;
 
+			var split_flag = false;
+
 
 
 			$('#money_total').text(localStorage.getItem("total"));
@@ -229,6 +231,8 @@ var card_dict = {
 				dealer_count_list.push(dealer_card_count);
 
 			}
+
+
 
 			for (var i = 1; i<dealer_total_list.length; i++){
 
@@ -265,6 +269,8 @@ var card_dict = {
 				random_number = Math.floor(Math.random()*(52));
 				player_card_list.push(card_array[random_number]);
 
+				alert(card_array[random_number].split('_')[0]);
+
 				if (card_dict[card_array[random_number]] === 11){
 
 					player_ace_count++;
@@ -287,6 +293,13 @@ var card_dict = {
 
 				player_total_list.push(player_total);
 				player_count_list.push(player_card_count);
+
+			}
+
+			if (player_card_list[1].split('_')[0] === player_card_list[2].split('_')[0]){
+
+
+				split_flag = true;
 
 			}
 
@@ -323,7 +336,13 @@ var card_dict = {
 						$('#hit').css("display", "unset");
 						$('#stay').css("display", "unset");
 						$('#double_down').css("display", "unset");
-						$('#split').css("display", "unset");
+
+						if (split_flag){
+
+							$('#split').css("display", "unset");
+
+						}
+						
 
 					}
 
@@ -583,6 +602,8 @@ var card_dict = {
 			var player_total_list = ['x'];
 			var player_count_list = ['x'];
 
+			var split_flag = false;
+
 			for(var i = 0; i<2;i++){
 
 				random_number = Math.floor(Math.random()*(52));
@@ -656,6 +677,13 @@ var card_dict = {
 
 			}
 
+			if (player_card_list[1].split('_')[0] === player_card_list[2].split('_')[0]){
+
+
+				split_flag = true;
+
+			}
+
 			for (var i = 1; i<player_total_list.length; i++){
 
 
@@ -679,7 +707,12 @@ var card_dict = {
 						$('#hit').css("display", "unset");
 						$('#stay').css("display", "unset");
 						$('#double_down').css("display", "unset");
-						$('#split').css("display", "unset");
+						
+						if (split_flag){
+
+							$('#split').css("display", "unset");
+
+						}
 
 					}
 
