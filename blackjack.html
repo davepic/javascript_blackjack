@@ -813,15 +813,33 @@ var card_dict = {
 	/* --------------------------------------------------------------------------------------------------------------- */
 	$('#split').click(function(){
 
+		var source_array = [];
+		var index = 0;
+
+		$('#double_down').css("display", "none");
+		$('#split').css("display", "none");
+
 
 		$('.player_div img').each(function(){
 
+			source_array.push(this.src);
 
-			alert(this.src);
+			if (index===1){
 
+				$(this).css("display", "none");
 
+			}
+			
+			index++;
 
 		});
+
+		
+		$('body').append('<div class=\"player_div\" style =\"left:750px\"><img src=\"static/img/' 
+					+ source_array[1].split('/')[source_array[1].split('/').length-1] +'\"/></div>');
+
+		
+		
 
 
 	});
