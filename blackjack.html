@@ -269,8 +269,6 @@ var card_dict = {
 				random_number = Math.floor(Math.random()*(52));
 				player_card_list.push(card_array[random_number]);
 
-				alert(card_array[random_number].split('_')[0]);
-
 				if (card_dict[card_array[random_number]] === 11){
 
 					player_ace_count++;
@@ -337,11 +335,11 @@ var card_dict = {
 						$('#stay').css("display", "unset");
 						$('#double_down').css("display", "unset");
 
-						if (split_flag){
+						/*if (split_flag){*/
 
 							$('#split').css("display", "unset");
 
-						}
+						/*}*/
 						
 
 					}
@@ -707,7 +705,7 @@ var card_dict = {
 						$('#hit').css("display", "unset");
 						$('#stay').css("display", "unset");
 						$('#double_down').css("display", "unset");
-						
+
 						if (split_flag){
 
 							$('#split').css("display", "unset");
@@ -809,6 +807,24 @@ var card_dict = {
 			}
 
 		});
+
+
+	/* --------------------------------------------------------------------------------------------------------------- */
+	/* --------------------------------------------------------------------------------------------------------------- */
+	$('#split').click(function(){
+
+
+		$('.player_div img').each(function(){
+
+
+			alert(this.src);
+
+
+
+		});
+
+
+	});
 
 
 });		
