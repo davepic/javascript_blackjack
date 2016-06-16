@@ -28,9 +28,17 @@
 <div id="split">Split</div>
 
 <div id="double_down">Double Down</div>
-<div id="split"></div>
+
 
 <div id="reload">New Hand</div>
+
+<div id = "split_hit_1">HIT</div>
+<div id = "split_stay_1">STAY</div>
+<div id="split_double_down_1">Double Down</div>
+
+<div id = "split_hit_2">HIT</div>
+<div id = "split_stay_2">STAY</div>
+<div id="split_double_down_2">Double Down</div>
 
 
 <table id="money_table">
@@ -824,6 +832,8 @@ var card_dict = {
 
 		$('#double_down').css("display", "none");
 		$('#split').css("display", "none");
+		$('#hit').css("display", "none");
+		$('#stay').css("display", "none");
 
 
 		$('.player_div img').each(function(){
@@ -850,11 +860,13 @@ var card_dict = {
 		$('body').append('<div class=\"player_div\" style =\"left:750px\"><img src=\"static/img/' 
 					+ source_array[1].split('/')[source_array[1].split('/').length-1] +'\"/></div>');
 
-		$('#hit').css("left", "225px");
-		$('#stay').css("left", "350px");
-		$('#double_down').css("left", "475px");
-		$('#double_down').css("display", "unset");
 
+		$('#split_hit_1').css("display", "unset");
+		$('#split_stay_1').css("display", "unset");
+		$('#split_double_down_1').css("display", "unset");
+		$('#split_hit_2').css("display", "unset");
+		$('#split_stay_2').css("display", "unset");
+		$('#split_double_down_2').css("display", "unset");
 
 
 		
