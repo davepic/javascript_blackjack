@@ -254,6 +254,95 @@ div#split:hover {
 
 }
 
+div#split_hit {
+
+
+	font-size:25px;
+	width:100px;
+	height:50px;
+	position:absolute;
+	top:625px;
+	left:375px;
+	font-family:Verdana;
+	background-color:white;
+	color:black;
+	border:1px solid black;
+	text-align:center;
+	vertical-align: center;
+	line-height: 50px;
+	cursor:pointer;
+	box-shadow: 2px 2px black;
+	display:none;
+
+
+}
+
+div#split_hit:hover {
+
+	background-color:yellow;
+
+}
+
+div#split_stay {
+
+
+	font-size:25px;
+	width:100px;
+	height:50px;
+	position:absolute;
+	top:625px;
+	left:500px;
+	font-family:Verdana;
+	background-color:white;
+	color:black;
+	border:1px solid black;
+	text-align:center;
+	vertical-align: center;
+	line-height: 50px;
+	cursor:pointer;
+	box-shadow: 2px 2px black;
+	display:none;
+
+
+
+
+}
+
+div#split_stay:hover {
+
+	background-color:yellow;
+
+}
+
+div#split_double_down {
+
+
+	font-size:10px;
+	width:100px;
+	height:50px;
+	position:absolute;
+	top:625px;
+	left:625px;
+	font-family:Verdana;
+	background-color:white;
+	color:black;
+	border:1px solid black;
+	text-align:center;
+	vertical-align: center;
+	line-height: 50px;
+	cursor:pointer;
+	box-shadow: 2px 2px black;
+	display:none;
+
+
+}
+
+div#split_double_down:hover {
+
+	background-color:yellow;
+
+}
+
 
 
 .player_div {

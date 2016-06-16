@@ -335,11 +335,11 @@ var card_dict = {
 						$('#stay').css("display", "unset");
 						$('#double_down').css("display", "unset");
 
-						/*if (split_flag){*/
+						if (split_flag){
 
 							$('#split').css("display", "unset");
 
-						/*}*/
+						}
 						
 
 					}
@@ -580,6 +580,7 @@ var card_dict = {
 			$('#double_down').css("display", "none");
 			$('#split').css("display", "none");
 
+
 						
 			card_count = 0;
 			random_number= 0;
@@ -705,6 +706,9 @@ var card_dict = {
 						$('#hit').css("display", "unset");
 						$('#stay').css("display", "unset");
 						$('#double_down').css("display", "unset");
+						$('#hit').css("left", "375px");
+						$('#stay').css("left", "500px");
+						$('#double_down').css("left", "625px");
 
 						if (split_flag){
 
@@ -842,7 +846,6 @@ var card_dict = {
 
 		$('#hit').css("left", "225px");
 		$('#stay').css("left", "350px");
-
 		$('#double_down').css("left", "475px");
 		$('#double_down').css("display", "unset");
 
