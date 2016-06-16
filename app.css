@@ -262,7 +262,7 @@ div#split_hit {
 	height:50px;
 	position:absolute;
 	top:625px;
-	left:375px;
+	left:700px;
 	font-family:Verdana;
 	background-color:white;
 	color:black;
@@ -291,7 +291,7 @@ div#split_stay {
 	height:50px;
 	position:absolute;
 	top:625px;
-	left:500px;
+	left:825px;
 	font-family:Verdana;
 	background-color:white;
 	color:black;
@@ -322,7 +322,7 @@ div#split_double_down {
 	height:50px;
 	position:absolute;
 	top:625px;
-	left:625px;
+	left:950px;
 	font-family:Verdana;
 	background-color:white;
 	color:black;

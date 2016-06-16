@@ -57,6 +57,7 @@ var dealer_card_count = 0
 var dealer_ace_count = 0
 var player_card_count = 0
 var player_ace_count = 0
+var num_hands = 0
 
 
 localStorage.setItem("total", $('#money_total').text());
@@ -335,11 +336,11 @@ var card_dict = {
 						$('#stay').css("display", "unset");
 						$('#double_down').css("display", "unset");
 
-						if (split_flag){
+						/*if (split_flag){*/
 
 							$('#split').css("display", "unset");
 
-						}
+						/*}*/
 						
 
 					}
@@ -710,11 +711,11 @@ var card_dict = {
 						$('#stay').css("left", "500px");
 						$('#double_down').css("left", "625px");
 
-						if (split_flag){
+						/*if (split_flag){*/
 
 							$('#split').css("display", "unset");
 
-						}
+						/*}*/
 
 					}
 
@@ -819,6 +820,7 @@ var card_dict = {
 
 		var source_array = [];
 		var index = 0;
+		num_hands++;
 
 		$('#double_down').css("display", "none");
 		$('#split').css("display", "none");
@@ -826,19 +828,23 @@ var card_dict = {
 
 		$('.player_div img').each(function(){
 
-			source_array.push(this.src);
 
-			if (index===1){
+			if($(this).is(':visible')){
 
+				source_array.push(this.src);
 				$(this).css("display", "none");
 
+				
 			}
+			
 			
 			index++;
 
 		});
 
-		$('.player_div').css("left", "250px");
+
+		$('body').append('<div class=\"player_div\" style =\"left:250px\"><img src=\"static/img/' 
+					+ source_array[0].split('/')[source_array[0].split('/').length-1] +'\"/></div>');
 
 		
 		$('body').append('<div class=\"player_div\" style =\"left:750px\"><img src=\"static/img/' 
@@ -848,6 +854,8 @@ var card_dict = {
 		$('#stay').css("left", "350px");
 		$('#double_down').css("left", "475px");
 		$('#double_down').css("display", "unset");
+
+
 
 		
 
