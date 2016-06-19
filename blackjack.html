@@ -888,12 +888,14 @@ var card_dict = {
 			$('#split_double_down_1').css("display", "none");
 			
 			var ace_flag = false;
+
+			card_count = 1;
 			
 			if(player_total<=21){
 
 				random_number = Math.floor(Math.random()*(52));
 
-				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(400+(card_count+1)*45, 10)+ 'px\"><img src=\"static/img/' 
+				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(250+(card_count)*33, 10)+ 'px\"><img src=\"static/img/' 
 					+ card_array[random_number] +'\"/></div>');
 
 				if (card_dict[card_array[random_number]] === 11){
