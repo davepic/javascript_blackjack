@@ -937,16 +937,20 @@ var card_dict = {
 
 					var current_total = parseInt(localStorage.getItem("total"), 10);
 
-					$('body').append('<div class=\"banner\">You LOSE</div>');
+					$('body').append('<div class=\"split_banner_left\">BUST</div>');
 
 					var new_total = current_total - parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
 
-					$('#reload').css("display", "unset");
-					$('#reload').css('z-index', 9999);
+					$('#split_hit_1').css("display", "none");
+					$('#split_stay_1').css("display", "none");
 
-				};		
+
+
+				};
+
+				card_count =card_count+1;		
 
 			}
 

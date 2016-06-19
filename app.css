@@ -532,3 +532,22 @@ div#dealer_popup {
 
 }
 
+.split_banner_left{
+
+	position:absolute;
+	background-color:rgba(0,0,0,.5);
+	color:white;
+	width:275px;
+	height:315px;
+	top:325px;
+	left:220px;
+	text-align:center;
+	vertical-align: center;
+	line-height:315px;
+	font-size:100px;
+	font-family:sans-serif;
+
+
+
+}
+
