@@ -26,6 +26,8 @@
 <div id="dealer_popup"></div>
 <div id="start">Start</div>
 <div id="split">Split</div>
+<div id="split_player_total_1"></div>
+<div id="split_player_total_2"></div>
 
 <div id="double_down">Double Down</div>
 
@@ -842,6 +844,12 @@ var card_dict = {
 		$('#split').css("display", "none");
 		$('#hit').css("display", "none");
 		$('#stay').css("display", "none");
+		$('#player_total').css("display", "none");
+		$('#split_player_total_1').css("display", "unset");
+		$('#split_player_total_2').css("display", "unset");
+		$('#split_player_total_1').text(player_total/2);
+		$('#split_player_total_2').text(player_total/2);
+
 
 
 		$('.player_div img').each(function(){
