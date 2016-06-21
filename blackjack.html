@@ -56,16 +56,18 @@
 <script type="text/javascript">
 
 
-var card_count = 0
-var random_number= 0
-var player_total = 0
-var ace_count = 0
-var dealer_total = 0
-var dealer_card_count = 0
-var dealer_ace_count = 0
-var player_card_count = 0
-var player_ace_count = 0
-var num_hands = 0
+var card_count = 0;
+var split_card_count_1 = 1;
+var split_card_count_2 = 1;
+var random_number= 0;
+var player_total = 0;
+var ace_count = 0;
+var dealer_total = 0;
+var dealer_card_count = 0;
+var dealer_ace_count = 0;
+var player_card_count = 0;
+var player_ace_count = 0;
+var num_hands = 0;
 
 
 localStorage.setItem("total", $('#money_total').text());
@@ -889,13 +891,13 @@ var card_dict = {
 			
 			var ace_flag = false;
 
-			card_count = 1;
+			
 			
 			if(player_total<=21){
 
 				random_number = Math.floor(Math.random()*(52));
 
-				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(250+(card_count)*33, 10)+ 'px\"><img src=\"static/img/' 
+				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(250+(split_card_count_1)*33, 10)+ 'px\"><img src=\"static/img/' 
 					+ card_array[random_number] +'\"/></div>');
 
 				if (card_dict[card_array[random_number]] === 11){
@@ -930,7 +932,7 @@ var card_dict = {
 				$('#player_popup').fadeOut("fast"); 
 				
 				
-				card_count = card_count + 1;
+				split_card_count_1 = split_card_count_1 + 1;
 
 				if(player_total>21){
 
@@ -950,11 +952,92 @@ var card_dict = {
 
 				};
 
-				card_count =card_count+1;		
+					
 
 			}
 
-		});		
+		});	
+
+	/* --------------------------------------------------------------------------------------------------------------- */
+	/* --------------------------------------------------------------------------------------------------------------- */
+
+	$('#split_hit_2').click(function(){
+
+			$('#split_double_down_2').css("display", "none");
+			
+			var ace_flag = false;
+
+			if (player_total >21){
+
+				alert(player_total);
+			}
+
+			
+			
+			if(player_total<=21){
+
+				random_number = Math.floor(Math.random()*(52));
+
+				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(750+(split_card_count_2)*33, 10)+ 'px\"><img src=\"static/img/' 
+					+ card_array[random_number] +'\"/></div>');
+
+				if (card_dict[card_array[random_number]] === 11){
+
+					player_ace_count++;
+
+				};
+
+				player_total = player_total + card_dict[card_array[random_number]];
+
+				if(player_total>21 && player_ace_count>0){
+
+					player_total=player_total-10;
+					player_ace_count=player_ace_count-1;
+					ace_flag=true;
+
+				};
+
+				$('#player_total').text(player_total);
+
+				if (ace_flag){
+
+					$('#player_popup').text("+1");
+
+				}
+				else {
+
+					$('#player_popup').text("+" + card_dict[card_array[random_number]]);
+				}
+				
+				$('#player_popup').fadeIn("fast");
+				$('#player_popup').fadeOut("fast"); 
+				
+				
+				split_card_count_2 = split_card_count_2 + 1;
+
+				if(player_total>21){
+
+
+					var current_total = parseInt(localStorage.getItem("total"), 10);
+
+					$('body').append('<div class=\"split_banner_right\">BUST</div>');
+
+					var new_total = current_total - parseInt($('#wager').val(), 10);
+					$('#money_total').text(new_total.toString());
+					localStorage.setItem("total", $('#money_total').text());
+
+					$('#split_hit_2').css("display", "none");
+					$('#split_stay_2').css("display", "none");
+
+
+
+				};
+
+						
+
+			}
+
+		});
 
 
 });		
