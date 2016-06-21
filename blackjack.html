@@ -29,6 +29,9 @@
 <div id="split_player_total_1"></div>
 <div id="split_player_total_2"></div>
 
+<div id="split_popup_1">+11</div>
+<div id="split_popup_2">+11</div>
+
 <div id="double_down">Double Down</div>
 
 
@@ -847,8 +850,23 @@ var card_dict = {
 		$('#player_total').css("display", "none");
 		$('#split_player_total_1').css("display", "unset");
 		$('#split_player_total_2').css("display", "unset");
-		$('#split_player_total_1').text(player_total/2);
-		$('#split_player_total_2').text(player_total/2);
+
+
+		if(player_ace_count>0){
+
+			$('#split_player_total_1').text(11);
+			$('#split_player_total_2').text(11);
+
+
+		}
+		else{
+
+			$('#split_player_total_1').text(player_total/2);
+			$('#split_player_total_2').text(player_total/2);
+
+
+		}
+		
 
 
 
