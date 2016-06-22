@@ -66,6 +66,10 @@ var split_card_count_1 = 1;
 var split_card_count_2 = 1;
 var random_number= 0;
 var player_total = 0;
+var split_total_1 = 0;
+var split_total_2 = 0;
+
+
 var ace_count = 0;
 var dealer_total = 0;
 var dealer_card_count = 0;
@@ -856,6 +860,8 @@ var card_dict = {
 
 			$('#split_player_total_1').text(11);
 			$('#split_player_total_2').text(11);
+			split_total_1 = 11;
+			split_total_2 = 11;
 
 
 		}
@@ -863,6 +869,8 @@ var card_dict = {
 
 			$('#split_player_total_1').text(player_total/2);
 			$('#split_player_total_2').text(player_total/2);
+			split_total_1 = player_total/2;
+			split_total_2 = player_total/2;
 
 
 		}
@@ -919,7 +927,7 @@ var card_dict = {
 
 			
 			
-			if(player_total<=21){
+			if(split_total_1<=21){
 
 				random_number = Math.floor(Math.random()*(52));
 
@@ -932,40 +940,44 @@ var card_dict = {
 
 				};
 
-				player_total = player_total + card_dict[card_array[random_number]];
+				split_total_1 = split_total_1 + card_dict[card_array[random_number]];
 
-				if(player_total>21 && player_ace_count>0){
+				if(split_total_1>21 && player_ace_count>0){
 
-					player_total=player_total-10;
+					split_total_1=split_total_1-10;
 					player_ace_count=player_ace_count-1;
 					ace_flag=true;
 
 				};
 
-				$('#player_total').text(player_total);
+				$('#split_player_total_1').text(split_total_1);
 
 				if (ace_flag){
 
-					$('#player_popup').text("+1");
+					$('#split_popup_1').text("+1");
 
 				}
 				else {
 
-					$('#player_popup').text("+" + card_dict[card_array[random_number]]);
+					$('#split_popup_1').text("+" + card_dict[card_array[random_number]]);
 				}
 				
-				$('#player_popup').fadeIn("fast");
-				$('#player_popup').fadeOut("fast"); 
+				$('#split_popup_1').fadeIn("fast");
+				$('#split_popup_1').fadeOut("fast"); 
 				
 				
 				split_card_count_1 = split_card_count_1 + 1;
 
-				if(player_total>21){
+				if(split_total_1>21){
 
 
 					var current_total = parseInt(localStorage.getItem("total"), 10);
 
-					$('body').append('<div class=\"split_banner_left\">BUST</div>');
+					
+
+					$('body').append('<div class=\"split_banner_left\" style=\"width:' + (275+40*(split_card_count_1-2)) +'px;\"">BUST</div>');
+
+					
 
 					var new_total = current_total - parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
@@ -993,14 +1005,8 @@ var card_dict = {
 			
 			var ace_flag = false;
 
-			if (player_total >21){
-
-				alert(player_total);
-			}
-
 			
-			
-			if(player_total<=21){
+			if(split_total_2<=21){
 
 				random_number = Math.floor(Math.random()*(52));
 
@@ -1013,40 +1019,42 @@ var card_dict = {
 
 				};
 
-				player_total = player_total + card_dict[card_array[random_number]];
+				split_total_2 = split_total_2 + card_dict[card_array[random_number]];
 
-				if(player_total>21 && player_ace_count>0){
+				if(split_total_2>21 && player_ace_count>0){
 
-					player_total=player_total-10;
+					split_total_2= split_total_2-10;
 					player_ace_count=player_ace_count-1;
 					ace_flag=true;
 
 				};
 
-				$('#player_total').text(player_total);
+				$('#split_player_total_2').text(split_total_2);
 
 				if (ace_flag){
 
-					$('#player_popup').text("+1");
+					$('#split_popup_2').text("+1");
 
 				}
 				else {
 
-					$('#player_popup').text("+" + card_dict[card_array[random_number]]);
+					$('#split_popup_2').text("+" + card_dict[card_array[random_number]]);
 				}
 				
-				$('#player_popup').fadeIn("fast");
-				$('#player_popup').fadeOut("fast"); 
+				$('#split_popup_2').fadeIn("fast");
+				$('#split_popup_2').fadeOut("fast"); 
 				
 				
 				split_card_count_2 = split_card_count_2 + 1;
 
-				if(player_total>21){
+				if(split_total_2>21){
 
 
 					var current_total = parseInt(localStorage.getItem("total"), 10);
 
-					$('body').append('<div class=\"split_banner_right\">BUST</div>');
+					$('body').append('<div class=\"split_banner_right\" style=\"width:' + (275+40*(split_card_count_2-2)) +'px;\"">BUST</div>');
+
+					
 
 					var new_total = current_total - parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
