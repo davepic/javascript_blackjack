@@ -599,6 +599,8 @@ var card_dict = {
 			$('.player_div').css("display", "none");
 			$('.dealer_div').css("display", "none");
 			$('.banner').css("display", "none");
+			$('.split_banner_left').css("display", "none");
+			$('.split_banner_right').css("display", "none");
 			$('#player_total').text("");
 			$('.card_back').css("display", "none");
 			$('#reload').css("display", "none");
@@ -611,6 +613,14 @@ var card_dict = {
 			$('#split_stay_2').css("display", "none");
 			$('#split_double_down_2').css("display", "none");
 
+			if($('#split_player_total_1').is(':visible')){
+
+				$('#player_total').css("display", "unset");
+				
+			}
+
+			$('#split_player_total_1').css("display", "none");
+			$('#split_player_total_2').css("display", "none");
 
 						
 			card_count = 0;
