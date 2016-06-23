@@ -68,6 +68,11 @@ var random_number= 0;
 var player_total = 0;
 var split_total_1 = 0;
 var split_total_2 = 0;
+var split_alive = true;
+
+
+var split_ace_count_1 = 0;
+var split_ace_count_2 = 0;
 
 
 var ace_count = 0;
@@ -862,6 +867,8 @@ var card_dict = {
 			$('#split_player_total_2').text(11);
 			split_total_1 = 11;
 			split_total_2 = 11;
+			split_ace_count_1=1;
+			split_ace_count_2=1;
 
 
 		}
@@ -906,9 +913,7 @@ var card_dict = {
 		$('#split_hit_1').css("display", "unset");
 		$('#split_stay_1').css("display", "unset");
 		$('#split_double_down_1').css("display", "unset");
-		$('#split_hit_2').css("display", "unset");
-		$('#split_stay_2').css("display", "unset");
-		$('#split_double_down_2').css("display", "unset");
+		
 
 
 		
@@ -942,10 +947,10 @@ var card_dict = {
 
 				split_total_1 = split_total_1 + card_dict[card_array[random_number]];
 
-				if(split_total_1>21 && player_ace_count>0){
+				if(split_total_1>21 && split_ace_count_1>0){
 
 					split_total_1=split_total_1-10;
-					player_ace_count=player_ace_count-1;
+					split_ace_count_1=split_ace_count_1-1;
 					ace_flag=true;
 
 				};
@@ -985,6 +990,12 @@ var card_dict = {
 
 					$('#split_hit_1').css("display", "none");
 					$('#split_stay_1').css("display", "none");
+
+					$('#split_hit_2').css("display", "unset");
+					$('#split_stay_2').css("display", "unset");
+					$('#split_double_down_2').css("display", "unset");
+
+					split_alive = false;
 
 
 
@@ -1072,6 +1083,20 @@ var card_dict = {
 			}
 
 		});
+
+	$('#split_stay_1').click(function(){
+
+
+		$('#split_hit_1').css("display", "none");
+		$('#split_stay_1').css("display", "none");
+		$('#split_double_down_1').css("display", "none");
+		$('#split_hit_2').css("display", "unset");
+		$('#split_stay_2').css("display", "unset");
+		$('#split_double_down_2').css("display", "unset");
+
+
+
+	});
 
 
 });		
