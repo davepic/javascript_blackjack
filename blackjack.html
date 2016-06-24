@@ -1240,7 +1240,7 @@ var card_dict = {
 
 				else if((dealer_total>split_total_1) && (17<=dealer_total<=21 && split_total_1<22)){
 
-					$('body').append('<div class=\"split_banner_left\">YOU LOSE</div>');
+					$('body').append('<div class=\"split_banner_left\">LOSE</div>');
 					var new_total = current_total - parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
@@ -1253,7 +1253,7 @@ var card_dict = {
 
 				} else if(dealer_total<split_total_1 && 17<=dealer_total<=21 && split_total_1<22){
 
-					$('body').append('<div class=\"split_banner_left\">YOU WIN</div>');
+					$('body').append('<div class=\"split_banner_left\">WIN</div>');
 					var new_total = current_total + parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
