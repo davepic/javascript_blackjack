@@ -1221,6 +1221,7 @@ var card_dict = {
 
 					if(split_total_1<22){
 
+						$('body').append('<div class=\"split_banner_left\">WIN</div>');
 						var new_total = parseInt($('#wager').val(), 10) + current_total;
 						$('#money_total').text(new_total.toString());
 						localStorage.setItem("total", $('#money_total').text());
@@ -1239,7 +1240,7 @@ var card_dict = {
 
 				else if((dealer_total>split_total_1) && (17<=dealer_total<=21 && split_total_1<22)){
 
-					$('body').append('<div class=\"banner\">YOU LOSE</div>');
+					$('body').append('<div class=\"split_banner_left\">YOU LOSE</div>');
 					var new_total = current_total - parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
@@ -1247,12 +1248,12 @@ var card_dict = {
 
 				} else if(dealer_total===split_total_1 && 17<=dealer_total<=21 && split_total_1<22){
 
-						$('body').append('<div class=\"banner\">PUSH</div>');
+						$('body').append('<div class=\"split_banner_left\">PUSH</div>');
 
 
 				} else if(dealer_total<split_total_1 && 17<=dealer_total<=21 && split_total_1<22){
 
-					$('body').append('<div class=\"banner\">YOU WIN</div>');
+					$('body').append('<div class=\"split_banner_left\">YOU WIN</div>');
 					var new_total = current_total + parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
@@ -1267,6 +1268,7 @@ var card_dict = {
 						
 					if(split_total_2<22){
 
+						$('body').append('<div class=\"split_banner_right\">WIN</div>');
 						var new_total = parseInt($('#wager').val(), 10)+ current_total;
 						$('#money_total').text(new_total.toString());
 						localStorage.setItem("total", $('#money_total').text());
@@ -1280,7 +1282,7 @@ var card_dict = {
 
 				else if((dealer_total>split_total_2) && (17<=dealer_total<=21 && split_total_2<22)){
 
-					$('body').append('<div class=\"banner\">YOU LOSE</div>');
+					$('body').append('<div class=\"split_banner_right\">LOSE</div>');
 					var new_total = current_total - parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
@@ -1288,12 +1290,12 @@ var card_dict = {
 
 				} else if(dealer_total===split_total_2 && 17<=dealer_total<=21 && split_total_2<22){
 
-					$('body').append('<div class=\"banner\">PUSH</div>');
+					$('body').append('<div class=\"split_banner_right\">PUSH</div>');
 
 
 				} else if(dealer_total<split_total_2 && 17<=dealer_total<=21 && split_total_2<22){
 
-					$('body').append('<div class=\"banner\">YOU WIN</div>');
+					$('body').append('<div class=\"split_banner_right\">WIN</div>');
 					var new_total = current_total + parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
