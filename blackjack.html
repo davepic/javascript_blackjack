@@ -84,6 +84,7 @@ var player_ace_count = 0;
 var num_hands = 0;
 
 
+
 localStorage.setItem("total", $('#money_total').text());
 
 var card_array = ["10_of_clubs.png",
@@ -415,9 +416,26 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 						/*}*/
 						
+						var decision_key_1 = player_card_list[1].split('_')[0]+","+ player_card_list[2].split('_')[0] + ","+dealer_card_list[1].split('_')[0];
+
+						alert(decision_key_1);
+
+
+						if (first_dict[decision_key_1]===undefined){
+
+							alert("h");
+
+						}
+						else {
+
+							alert(first_dict[decision_key_1]);
+
+						}
 
 					}
 
+
+					/*FIX FULL WORDS IN CARD NAMES*/
 
 				}; } (i), 1500*i);
 
