@@ -810,6 +810,11 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			$('#split_stay_2').css("display", "none");
 			$('#split_double_down_2').css("display", "none");
 
+			$('#hit').css("background-color", "white");
+			$('#stay').css("background-color", "white");
+			$('#double_down').css("background-color", "white");
+			$('#split').css("background-color", "white");
+
 			if($('#split_player_total_1').is(':visible')){
 
 				$('#player_total').css("display", "unset");
@@ -1508,8 +1513,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 				$('#reload').css('left', "600px");
 
 
-				/*FIX WHEN BOTH BUST*/
-				/*FIX RELOAD LOCATION */
+				/*FIX RELOAD, FIX SUBSEQUENT HITS, SPLIT*/
 					
 
 			}, 500*dealer_total_list.length);
