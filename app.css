@@ -133,23 +133,27 @@ div#dealer_total {
 div#reload {
 
 	position:absolute;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	width:100px;
 	height:50px;
 	top:325px;
 	left:625px;
-	font-size:10px;
+	font-size:20px;
 	cursor:pointer;
 	text-align:center;
 	vertical-align: center;
 	line-height:50px;
 	border:1px solid black;
+	box-shadow: 2px 2px black;
 	display:none;
 	
 }
 
+div#reload:hover {
 
+	background-color:red;
+}
 
 div#hit {
 
@@ -161,8 +165,8 @@ div#hit {
 	top:625px;
 	left:375px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -177,7 +181,7 @@ div#hit {
 
 div#hit:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 
@@ -192,8 +196,8 @@ div#start {
 	top:325px;
 	left:625px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -208,7 +212,7 @@ div#start {
 
 div#start:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 
@@ -223,8 +227,8 @@ div#stay {
 	top:625px;
 	left:500px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -240,22 +244,22 @@ div#stay {
 
 div#stay:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 
 div#double_down {
 
 
-	font-size:10px;
+	font-size:22px;
 	width:100px;
 	height:50px;
 	position:absolute;
 	top:625px;
 	left:625px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -269,7 +273,7 @@ div#double_down {
 
 div#double_down:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 
@@ -283,8 +287,8 @@ div#split {
 	top:625px;
 	left:750px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -300,7 +304,7 @@ div#split {
 
 div#split:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 
@@ -314,8 +318,8 @@ div#split_hit_1 {
 	top:625px;
 	left:225px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -329,7 +333,7 @@ div#split_hit_1 {
 
 div#split_hit_1:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 
@@ -343,8 +347,8 @@ div#split_stay_1 {
 	top:625px;
 	left:350px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -360,22 +364,22 @@ div#split_stay_1 {
 
 div#split_stay_1:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 
 div#split_double_down_1 {
 
 
-	font-size:10px;
+	font-size:22px;
 	width:100px;
 	height:50px;
 	position:absolute;
 	top:625px;
 	left:475px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -389,7 +393,7 @@ div#split_double_down_1 {
 
 div#split_double_down_1:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 
@@ -406,8 +410,8 @@ div#split_hit_2 {
 	top:625px;
 	left:725px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -421,7 +425,7 @@ div#split_hit_2 {
 
 div#split_hit_2:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 
@@ -435,8 +439,8 @@ div#split_stay_2 {
 	top:625px;
 	left:850px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -452,22 +456,22 @@ div#split_stay_2 {
 
 div#split_stay_2:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 
 div#split_double_down_2 {
 
 
-	font-size:10px;
+	font-size:22px;
 	width:100px;
 	height:50px;
 	position:absolute;
 	top:625px;
 	left:975px;
 	font-family:Verdana;
-	background-color:white;
-	color:black;
+	background-color:black;
+	color:white;
 	border:1px solid black;
 	text-align:center;
 	vertical-align: center;
@@ -481,7 +485,7 @@ div#split_double_down_2 {
 
 div#split_double_down_2:hover {
 
-	background-color:yellow;
+	background-color:red;
 
 }
 

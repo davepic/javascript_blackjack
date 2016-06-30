@@ -27,25 +27,25 @@
 <div id = "player_popup"></div>
 <div id="dealer_popup"></div>
 <div id="start">Start</div>
-<div id="split">Split</div>
+<div id="split">SPLIT</div>
 <div id="split_player_total_1"></div>
 <div id="split_player_total_2"></div>
 
 <div id="split_popup_1">+11</div>
 <div id="split_popup_2">+11</div>
 
-<div id="double_down">Double Down</div>
+<div id="double_down">DOUBLE</div>
 
 
 <div id="reload">New Hand</div>
 
 <div id = "split_hit_1">HIT</div>
 <div id = "split_stay_1">STAY</div>
-<div id="split_double_down_1">Double Down</div>
+<div id="split_double_down_1">DOUBLE</div>
 
 <div id = "split_hit_2">HIT</div>
 <div id = "split_stay_2">STAY</div>
-<div id="split_double_down_2">Double Down</div>
+<div id="split_double_down_2">DOUBLE</div>
 
 
 
@@ -510,9 +510,6 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 						}
 
-						
-
-						alert(player_total_list[2]+","+dealer_total_list[1]);
 
 
 						if (first_dict[decision_key_1]===undefined){
@@ -520,24 +517,24 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 							if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === undefined){
 
-								$('#hit').css("background-color", "yellow");
+								$('#hit').css("background-color", "red");
 
 							} else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "s")
 							{
 
-								$('#stay').css("background-color", "yellow");
+								$('#stay').css("background-color", "red");
 
 							}
 							else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "d")
 							{
 
-								$('#double_down').css("background-color", "yellow");
+								$('#double_down').css("background-color", "red");
 
 							}
 							else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "sp")
 							{
 
-								$('#split').css("background-color", "yellow");
+								$('#split').css("background-color", "red");
 
 							}
 							
@@ -545,17 +542,17 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						}
 						else if (first_dict[decision_key_1]==="s"){
 
-							$('#stay').css("background-color", "yellow");
+							$('#stay').css("background-color", "red");
 
 						}
 						else if (first_dict[decision_key_1]==="d"){
 
-							$('#double_down').css("background-color", "yellow");
+							$('#double_down').css("background-color", "red");
 						} 
 						else if (first_dict[decision_key_1]==="sp"){
 
 
-							$('#split').css("background-color", "yellow");
+							$('#split').css("background-color", "red");
 
 
 						}
@@ -631,7 +628,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 					var current_total = parseInt(localStorage.getItem("total"), 10);
 
-					$('body').append('<div class=\"banner\">You LOSE</div>');
+					$('body').append('<div class=\"banner\">BUST</div>');
 
 					var new_total = current_total - parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
@@ -810,10 +807,10 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			$('#split_stay_2').css("display", "none");
 			$('#split_double_down_2').css("display", "none");
 
-			$('#hit').css("background-color", "white");
-			$('#stay').css("background-color", "white");
-			$('#double_down').css("background-color", "white");
-			$('#split').css("background-color", "white");
+			$('#hit').css("background-color", "black");
+			$('#stay').css("background-color", "black");
+			$('#double_down').css("background-color", "black");
+			$('#split').css("background-color", "black");
 
 			if($('#split_player_total_1').is(':visible')){
 
@@ -1041,7 +1038,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 				var current_total = parseInt(localStorage.getItem("total"), 10);
 
-				$('body').append('<div class=\"banner\">You LOSE</div>');
+				$('body').append('<div class=\"banner\">BUST</div>');
 
 				var new_total = current_total - parseInt($('#wager').val(), 10);
 				$('#money_total').text(new_total.toString());
