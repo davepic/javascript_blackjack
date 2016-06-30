@@ -73,6 +73,11 @@ var split_total_1 = 0;
 var split_total_2 = 0;
 var split_alive = true;
 
+var hit_choice = false;
+var stay_choice = false;
+var double_choice = false;
+var split_choice = false;
+
 
 var split_ace_count_1 = 0;
 var split_ace_count_2 = 0;
@@ -517,10 +522,13 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 							if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === undefined){
 
+								hit_choice = true; 
+
 								$('#hit').css("background-color", "red");
 
 							} else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "s")
 							{
+								stay_choice = true;
 
 								$('#stay').css("background-color", "red");
 
@@ -528,12 +536,14 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 							else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "d")
 							{
 
+								double_choice = true;
 								$('#double_down').css("background-color", "red");
 
 							}
 							else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "sp")
 							{
 
+								split_choice = true;
 								$('#split').css("background-color", "red");
 
 							}
@@ -785,6 +795,11 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 	
 		$('#reload').click(function(){
 
+			hit_choice = false;
+			stay_choice= false;
+			double_choice = false;
+			split_choice = false;
+
 
 			$('#dealer_total').text("");
 			$('#hit').css("display", "none");
@@ -972,6 +987,86 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 		
 
 		});
+
+	$('#hit').mouseover(function(){
+
+
+		$(this).css("background-color", "red");
+
+
+	});
+
+	$('#hit').mouseout(function(){
+
+		if (!hit_choice){
+
+			$(this).css("background-color", "black");
+
+		}
+		
+
+
+	});
+
+	$('#stay').mouseover(function(){
+
+
+		$(this).css("background-color", "red");
+
+
+	});
+
+	$('#stay').mouseout(function(){
+
+
+		if (!stay_choice){
+
+			$(this).css("background-color", "black");
+			
+		}
+
+
+	});
+
+	$('#double_down').mouseover(function(){
+
+
+		$(this).css("background-color", "red");
+
+
+	});
+
+	$('#double_down').mouseout(function(){
+
+
+		if (!double_choice){
+
+			$(this).css("background-color", "black");
+			
+		}
+
+
+	});
+
+	$('#split').mouseover(function(){
+
+
+		$(this).css("background-color", "red");
+
+
+	});
+
+	$('#split').mouseout(function(){
+
+
+		if (!split_choice){
+
+			$(this).css("background-color", "black");
+			
+		}
+
+
+	});
 
 
 
