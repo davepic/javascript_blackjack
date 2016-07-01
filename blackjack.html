@@ -662,33 +662,33 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 							
 
-							if (number_dict[player_total + ","+ $('#dealer_total').text()] === undefined){
+					if (number_dict[player_total + ","+ $('#dealer_total').text()] === undefined){
 
-								hit_choice = true; 
+						hit_choice = true; 
 
-								$('#hit').css("background-color", "red");
+						$('#hit').css("background-color", "red");
 
-							} else if (number_dict[player_total + ","+ $('#dealer_total').text()] === "s")
-							{
-								stay_choice = true;
+					} else if (number_dict[player_total + ","+ $('#dealer_total').text()] === "s")
+					{
+						stay_choice = true;
 
-								$('#stay').css("background-color", "red");
+						$('#stay').css("background-color", "red");
 
-							}
-							else if (number_dict[player_total + ","+ $('#dealer_total').text()] === "d")
-							{
+					}
+					else if (number_dict[player_total + ","+ $('#dealer_total').text()] === "d")
+					{
 
-								double_choice = true;
-								$('#double_down').css("background-color", "red");
+						double_choice = true;
+						$('#double_down').css("background-color", "red");
 
-							}
-							else if (number_dict[player_total + ","+ $('#dealer_total').text()] === "sp")
-							{
+					}
+					else if (number_dict[player_total + ","+ $('#dealer_total').text()] === "sp")
+					{
 
-								split_choice = true;
-								$('#split').css("background-color", "red");
+						split_choice = true;
+						$('#split').css("background-color", "red");
 
-							}
+					}
 						
 
 				}		
@@ -1175,6 +1175,10 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 		});
 
+	/* --------------------------------------------------------------------------------------------------------------- */
+	/* --------------------------------------------------------------------------------------------------------------- */
+	
+
 	$('#hit').mouseover(function(){
 
 
@@ -1589,7 +1593,11 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 			}
 
-		});
+	});
+
+	/* --------------------------------------------------------------------------------------------------------------- */
+	/* --------------------------------------------------------------------------------------------------------------- */
+	
 
 	$('#split_stay_1').click(function(){
 
@@ -1711,17 +1719,8 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						$('#money_total').text(new_total.toString());
 						localStorage.setItem("total", $('#money_total').text());
 							
-
 					}
-
-						
-						
-
-
 				} 
-
-
-
 
 				else if((dealer_total>split_total_1) && (17<=dealer_total<=21 && split_total_1<22)){
 
