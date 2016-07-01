@@ -586,6 +586,11 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 		$('#hit').click(function(){
 
+			hit_choice=false;
+			split_choice=false;
+			stay_choice=false;
+			double_choice=false;
+
 			$('#double_down').css("display", "none");
 			$('#split').css("display", "none");
 
@@ -633,6 +638,8 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 				
 				card_count = card_count + 1;
 
+				alert(player_total + ","+ $('#dealer_total').text());
+
 				if(player_total>21){
 
 
@@ -647,10 +654,46 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					$('#reload').css("display", "unset");
 					$('#reload').css('z-index', 9999);
 
-				};		
+				}
+
+
+				else
+				{
+
+							
+
+							if (number_dict[player_total + ","+ $('#dealer_total').text()] === undefined){
+
+								hit_choice = true; 
+
+								$('#hit').css("background-color", "red");
+
+							} else if (number_dict[player_total + ","+ $('#dealer_total').text()] === "s")
+							{
+								stay_choice = true;
+
+								$('#stay').css("background-color", "red");
+
+							}
+							else if (number_dict[player_total + ","+ $('#dealer_total').text()] === "d")
+							{
+
+								double_choice = true;
+								$('#double_down').css("background-color", "red");
+
+							}
+							else if (number_dict[player_total + ","+ $('#dealer_total').text()] === "sp")
+							{
+
+								split_choice = true;
+								$('#split').css("background-color", "red");
+
+							}
+						
+
+				}		
 
 			}
-
 		});		
 
 	/* -----------------------------------------------------------------------------------------------------------------*/
