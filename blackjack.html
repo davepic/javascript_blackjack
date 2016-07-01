@@ -977,6 +977,150 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 						/*}*/
 
+
+						var decision_key_1 = "";
+
+
+						switch(player_card_list[1].split('_')[0]){
+
+							case "jack":
+
+								decision_key_1 = decision_key_1 + "J";
+								break;
+
+							case "queen":
+
+								decision_key_1 = decision_key_1 + "Q";
+								break;
+
+							case "king":
+
+								decision_key_1 = decision_key_1 + "K";
+								break;
+
+							case "ace":
+
+								decision_key_1 = decision_key_1 + "A";
+								break;
+
+							default:
+
+								decision_key_1 = decision_key_1 + player_card_list[1].split('_')[0]
+
+						}
+
+						decision_key_1 = decision_key_1 + ",";
+
+						switch(player_card_list[2].split('_')[0]){
+
+							case "jack":
+
+								decision_key_1 = decision_key_1 + "J";
+								break;
+
+							case "queen":
+
+								decision_key_1 = decision_key_1 + "Q";
+								break;
+
+							case "king":
+
+								decision_key_1 = decision_key_1 + "K";
+								break;
+
+							case "ace":
+
+								decision_key_1 = decision_key_1 + "A";
+								break;
+
+							default:
+
+								decision_key_1 = decision_key_1 + player_card_list[2].split('_')[0]
+
+						}
+
+						decision_key_1 = decision_key_1 + ",";
+
+						switch(dealer_card_list[1].split('_')[0]){
+
+							case "jack":
+
+								decision_key_1 = decision_key_1 + "J";
+								break;
+
+							case "queen":
+
+								decision_key_1 = decision_key_1 + "Q";
+								break;
+
+							case "king":
+
+								decision_key_1 = decision_key_1 + "K";
+								break;
+
+							case "ace":
+
+								decision_key_1 = decision_key_1 + "A";
+								break;
+
+							default:
+
+								decision_key_1 = decision_key_1 + dealer_card_list[1].split('_')[0]
+
+						}
+
+
+
+						if (first_dict[decision_key_1]===undefined){
+
+
+							if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === undefined){
+
+								hit_choice = true; 
+
+								$('#hit').css("background-color", "red");
+
+							} else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "s")
+							{
+								stay_choice = true;
+
+								$('#stay').css("background-color", "red");
+
+							}
+							else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "d")
+							{
+
+								double_choice = true;
+								$('#double_down').css("background-color", "red");
+
+							}
+							else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "sp")
+							{
+
+								split_choice = true;
+								$('#split').css("background-color", "red");
+
+							}
+							
+
+						}
+						else if (first_dict[decision_key_1]==="s"){
+
+							$('#stay').css("background-color", "red");
+
+						}
+						else if (first_dict[decision_key_1]==="d"){
+
+							$('#double_down').css("background-color", "red");
+						} 
+						else if (first_dict[decision_key_1]==="sp"){
+
+
+							$('#split').css("background-color", "red");
+
+
+						}
+
 					}
 
 
