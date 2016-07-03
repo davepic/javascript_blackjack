@@ -109,7 +109,7 @@ var num_hands = 0;
 
 localStorage.setItem("total", $('#money_total').text());
 
-/*var card_array = ["10_of_clubs.png",
+var card_array = ["10_of_clubs.png",
  "10_of_diamonds.png",
  "10_of_hearts.png",
  "10_of_spades.png",
@@ -163,16 +163,8 @@ localStorage.setItem("total", $('#money_total').text());
 "queen_of_spades.png"]
 
 
-*/
 
-var card_array = [
- "ace_of_clubs.png",
- "ace_of_diamonds.png",
- "ace_of_hearts.png",
- "ace_of_spades.png"
- ]
-
-/*var card_dict = {
+var card_dict = {
 
 "10_of_clubs.png": 10,
 "10_of_diamonds.png": 10,
@@ -227,16 +219,8 @@ var card_array = [
 "queen_of_hearts.png": 10,
 "queen_of_spades.png": 10 
 }
-*/
 
-var card_dict = {
 
-"ace_of_clubs.png": 11,
-"ace_of_diamonds.png": 11,
-"ace_of_hearts.png": 11,
-"ace_of_spades.png": 11 
-
-}
 
 var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A,8,6": "s"	, "A,8,7": "s"	, "A,8,8": "s"	, "A,8,9": "s"	, "A,8,10": "s"	, "A,8,J": "s"	, "A,8,Q": "s"	, "A,8,K": "s"	, "A,8,A": "s"
 	, "8,A,2": "s"	, "8,A,3": "s"	, "8,A,4": "s"	, "8,A,5": "s"	, "8,A,6": "s"	, "8,A,7": "s"	, "8,A,8": "s"	, "8,A,9": "s"	, "8,A,10": "s"	, "8,A,J": "s"	, "8,A,Q": "s"	, "8,A,K": "s"	, "8,A,A": "s"
@@ -317,7 +301,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 			for(var i = 0; i<2;i++){
 
-				random_number = Math.floor(Math.random()*(4));
+				random_number = Math.floor(Math.random()*(52));
 				dealer_card_list.push(card_array[random_number]);
 
 				if (card_dict[card_array[random_number]] === 11){
@@ -379,7 +363,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 			for(var i = 0; i<2;i++){
 
-				random_number = Math.floor(Math.random()*(4));
+				random_number = Math.floor(Math.random()*(52));
 				player_card_list.push(card_array[random_number]);
 
 				if (card_dict[card_array[random_number]] === 11){
@@ -582,16 +566,18 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						}
 						else if (first_dict[decision_key_1]==="s"){
 
+							stay_choice=true;
 							$('#stay').css("background-color", "red");
 
 						}
 						else if (first_dict[decision_key_1]==="d"){
 
+							double_choice=true;
 							$('#double_down').css("background-color", "red");
 						} 
 						else if (first_dict[decision_key_1]==="sp"){
 
-
+							split_choice=true;
 							$('#split').css("background-color", "red");
 
 
@@ -624,7 +610,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			
 			if(player_total<=21){
 
-				random_number = Math.floor(Math.random()*(4));
+				random_number = Math.floor(Math.random()*(52));
 
 				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(400+(card_count+1)*45,10)+ 'px\"><img src=\"static/img/' 
 					+ card_array[random_number] +'\"/></div>');
@@ -752,7 +738,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			while (dealer_total < 17) {
 
 		
-				random_number = Math.floor(Math.random()*(4));
+				random_number = Math.floor(Math.random()*(52));
 
 				dealer_card_list.push(card_array[random_number]);
 				
@@ -933,7 +919,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 			for(var i = 0; i<2;i++){
 
-				random_number = Math.floor(Math.random()*(4));
+				random_number = Math.floor(Math.random()*(52));
 				dealer_card_list.push(card_array[random_number]);
 
 				if (card_dict[card_array[random_number]] === 11){
@@ -985,7 +971,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 			for(var i = 0; i<2;i++){
 
-				random_number = Math.floor(Math.random()*(4));
+				random_number = Math.floor(Math.random()*(52));
 				player_card_list.push(card_array[random_number]);
 
 				if (card_dict[card_array[random_number]] === 11){
@@ -1047,7 +1033,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					}
 
 
-					
+
 					$('#player_popup').fadeIn("fast");
 					$('#player_popup').fadeOut("fast");
 
@@ -1187,7 +1173,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 							}
 							else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "sp")
 							{
-
+							
 								split_choice = true;
 								$('#split').css("background-color", "red");
 
@@ -1197,16 +1183,18 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						}
 						else if (first_dict[decision_key_1]==="s"){
 
+							stay_choice=true;
 							$('#stay').css("background-color", "red");
 
 						}
 						else if (first_dict[decision_key_1]==="d"){
 
+							double_choice=true;
 							$('#double_down').css("background-color", "red");
 						} 
 						else if (first_dict[decision_key_1]==="sp"){
 
-
+							split_choice=true;
 							$('#split').css("background-color", "red");
 
 
@@ -1328,7 +1316,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			
 			
 
-			random_number = Math.floor(Math.random()*(4));
+			random_number = Math.floor(Math.random()*(52));
 			$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(400+(card_count+1)*45,10)+ 'px\"><img src=\"static/img/' 
 				+ card_array[random_number] +'\"/></div>');
 
@@ -1483,7 +1471,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			
 			if(split_total_1<=21){
 
-				random_number = Math.floor(Math.random()*(4));
+				random_number = Math.floor(Math.random()*(52));
 
 				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(250+(split_card_count_1)*33,10)+ 'px\"><img src=\"static/img/' 
 					+ card_array[random_number] +'\"/></div>');
@@ -1568,7 +1556,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			
 			if(split_total_2<=21){
 
-				random_number = Math.floor(Math.random()*(4));
+				random_number = Math.floor(Math.random()*(52));
 
 				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(750+(split_card_count_2)*33,10)+ 'px\"><img src=\"static/img/' 
 					+ card_array[random_number] +'\"/></div>');
@@ -1693,7 +1681,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 		while (dealer_total < 17) {
 
 		
-			random_number = Math.floor(Math.random()*(4));
+			random_number = Math.floor(Math.random()*(52));
 
 			dealer_card_list.push(card_array[random_number]);
 				
