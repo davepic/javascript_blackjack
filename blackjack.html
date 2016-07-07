@@ -73,6 +73,23 @@
 	
 	</table>
 
+	<table id="winlosstable" border="1" bordercolor="white">
+
+		<tr>
+			<td>Wins</td>
+			<td>Losses</td>
+			<td>Pushes</td>
+		</tr>
+		
+		<tr>
+			<td id="wins">0</td>
+			<td id="losses">0</td>
+			<td id="pushes">0</td>
+		</tr>
+
+
+	</table>
+
 
 
 <script type="text/javascript">
@@ -324,7 +341,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					dealer_ace_flag = true;
 					
 
-				};
+				}
 
 				dealer_card_count++;
 
@@ -669,6 +686,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					$('#reload').css('z-index', 9999);
 
 					losses = losses + 1;
+					$('#losses').text(losses);
 
 
 				}
@@ -814,6 +832,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						$('#money_total').text(new_total.toString());
 						localStorage.setItem("total", $('#money_total').text());
 						wins=wins+1;
+						$('#wins').text(wins);
 
 
 					} 
@@ -825,12 +844,14 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						$('#money_total').text(new_total.toString());
 						localStorage.setItem("total", $('#money_total').text());
 						losses=losses+1;
+						$('#losses').text(losses);
 				
 
 					} else if(dealer_total===player_total && 17<=dealer_total<=21){
 
 						$('body').append('<div class=\"banner\">PUSH</div>');
 						pushes=pushes+1;
+						$('#pushes').text(pushes);
 
 
 					} else if(dealer_total<player_total && 17<=dealer_total<=21){
@@ -840,6 +861,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						$('#money_total').text(new_total.toString());
 						localStorage.setItem("total", $('#money_total').text());
 						wins=wins+1;
+						$('#wins').text(wins);
 
 					}
 
@@ -859,10 +881,6 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 	
 		$('#reload').click(function(){
 
-
-			wins = 0;
-			losses = 0;
-			pushes= 0;
 			hit_choice = false;
 			stay_choice= false;
 			double_choice = false;
@@ -893,9 +911,6 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			$('#split').css("background-color", "black");
 			if($('#split_player_total_1').is(':visible')){
 				$('#player_total').css("display", "unset");
-
-				var temp_total = $('#wager').
-				
 			}
 			$('#split_player_total_1').css("display", "none");
 			$('#split_player_total_2').css("display", "none");
@@ -1372,6 +1387,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 				$('#reload').css("display", "unset");
 				$('#reload').css('z-index', 9999);
 				losses=losses+1;
+				$('#losses').text(losses);
 
 				
 			} else {
@@ -1789,7 +1805,8 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						$('#money_total').text(new_total.toString());
 						localStorage.setItem("total", $('#money_total').text());
 						wins=wins+1;
-							
+						$('#wins').text(wins);
+
 					}
 				} 
 
@@ -1800,12 +1817,14 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
 					losses=losses+1;
+					$('#losses').text(losses);
 				
 
 				} else if(dealer_total===split_total_1 && 17<=dealer_total<=21 && split_total_1<22){
 
 						$('body').append('<div class=\"split_banner_left\">PUSH</div>');
 						pushes=pushes+1;
+						$('#pushes').text(pushes);
 
 
 				} else if(dealer_total<split_total_1 && 17<=dealer_total<=21 && split_total_1<22){
@@ -1815,6 +1834,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
 					wins=wins+1;
+					$('#wins').text(wins);
 				}
 
 
@@ -1830,6 +1850,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						$('#money_total').text(new_total.toString());
 						localStorage.setItem("total", $('#money_total').text());
 						wins=wins+1;
+						$('#wins').text(wins);
 
 					}
 						
@@ -1844,13 +1865,14 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
 					losses=losses+1;
+					$('#losses').text(losses);
 				
 
 				} else if(dealer_total===split_total_2 && 17<=dealer_total<=21 && split_total_2<22){
 
 					$('body').append('<div class=\"split_banner_right\">PUSH</div>');
 					pushes=pushes+1;
-
+					$('#pushes').text(pushes);
 
 				} else if(dealer_total<split_total_2 && 17<=dealer_total<=21 && split_total_2<22){
 
@@ -1859,6 +1881,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
 					wins=wins+1;
+					$('#wins').text(wins);
 
 				}
 
@@ -1867,7 +1890,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 				$('#reload').css('left', "600px");
 
 
-				/*FIX DOUBLE WAGERS, SPLIT RECOMMENDATIONS. COUNTER FOR WINS/LOSSES*/
+				/*FIX DOUBLE WAGERS, SPLIT RECOMMENDATIONS. DEALER DOUBLE ACES*/
 					
 
 			}, 500*dealer_total_list.length);
