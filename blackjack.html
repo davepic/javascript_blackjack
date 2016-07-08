@@ -113,6 +113,8 @@ var wins = 0;
 var losses = 0;
 var pushes = 0;
 
+var player_blackjack_flag = false;
+
 
 var split_ace_count_1 = 0;
 var split_ace_count_2 = 0;
@@ -129,6 +131,7 @@ var num_hands = 0;
 
 
 localStorage.setItem("total", $('#money_total').text());
+
 
 var card_array = ["10_of_clubs.png",
  "10_of_diamonds.png",
@@ -243,6 +246,7 @@ var card_dict = {
 
 
 
+
 var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A,8,6": "s"	, "A,8,7": "s"	, "A,8,8": "s"	, "A,8,9": "s"	, "A,8,10": "s"	, "A,8,J": "s"	, "A,8,Q": "s"	, "A,8,K": "s"	, "A,8,A": "s"
 	, "8,A,2": "s"	, "8,A,3": "s"	, "8,A,4": "s"	, "8,A,5": "s"	, "8,A,6": "s"	, "8,A,7": "s"	, "8,A,8": "s"	, "8,A,9": "s"	, "8,A,10": "s"	, "8,A,J": "s"	, "8,A,Q": "s"	, "8,A,K": "s"	, "8,A,A": "s"
 	, "A,9,2": "s"	, "A,9,3": "s"	, "A,9,4": "s"	, "A,9,5": "s"	, "A,9,6": "s"	, "A,9,7": "s"	, "A,9,8": "s"	, "A,9,9": "s"	, "A,9,10": "s"	, "A,9,J": "s"	, "A,9,Q": "s"	, "A,9,K": "s"	, "A,9,A": "s"
@@ -340,7 +344,6 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					dealer_ace_count=dealer_ace_count-1;
 					dealer_ace_flag = true;
 					
-
 				}
 
 				dealer_card_count++;
@@ -349,7 +352,6 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 				dealer_count_list.push(dealer_card_count);
 
 			}
-
 
 
 			for (var i = 1; i<dealer_total_list.length; i++){
@@ -601,6 +603,15 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 							split_choice=true;
 							$('#split').css("background-color", "red");
 
+
+						}
+
+						if (player_total === 21){
+
+							$('#stay').text("Cont");
+							$('#hit').display("none");
+							$('#double').display("none");
+							$('#split').display("none");
 
 						}
 
@@ -1893,7 +1904,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 				$('#reload').css('left', "600px");
 
 
-				/*FIX DOUBLE WAGERS, SPLIT RECOMMENDATIONS. DEALER DOUBLE ACES*/
+				/*FIX DOUBLE WAGERS, SPLIT RECOMMENDATIONS.*/
 					
 
 			}, 500*dealer_total_list.length);
