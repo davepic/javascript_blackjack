@@ -318,6 +318,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 			
 			$('#start').css("display", "none");
+			$('#wager').prop('disabled', true);
 
 			var dealer_card_list = ['x'];
 			var dealer_total_list = ['x'];
@@ -714,6 +715,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 					$('#reload').css("display", "unset");
 					$('#reload').css('z-index', 9999);
+					$('#wager').prop('disabled', false);
 
 					losses = losses + 1;
 					$('#losses').text(losses);
@@ -822,6 +824,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 				$('#reload').css("display", "unset");
 				$('#reload').css('z-index', 9999);
+				$('#wager').prop('disabled', false);
 
 			}
 
@@ -934,6 +937,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 					$('#reload').css("display", "unset");
 					$('#reload').css('z-index', 9999);
+					$('#wager').prop('disabled', false);
 					
 
 				}, 500*dealer_total_list.length);
@@ -949,6 +953,9 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 	/* --------------------------------------------------------------------------------------------------------------- */
 	
 		$('#reload').click(function(){
+
+
+			$('#wager').prop('disabled', true);
 
 			hit_choice = false;
 			stay_choice= false;
@@ -1501,6 +1508,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 				$('#reload').css("display", "unset");
 				$('#reload').css('z-index', 9999);
+				$('#wager').prop('disabled', false);
 				losses=losses+1;
 				$('#losses').text(losses);
 
@@ -1773,6 +1781,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						$('#reload').css("display", "unset");
 						$('#reload').css('z-index', 9999);
 						$('#reload').css('left', "600px");
+						$('#wager').prop('disabled', false);
 
 					}
 
@@ -2016,9 +2025,10 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 				$('#reload').css("display", "unset");
 				$('#reload').css('z-index', 9999);
 				$('#reload').css('left', "600px");
+				$('#wager').prop('disabled', false);
 
 
-				/*FIX DOUBLE WAGERS, SPLIT RECOMMENDATIONS.*/
+				/*FIX DOUBLE WAGERS*/
 					
 
 			}, 500*dealer_total_list.length);
