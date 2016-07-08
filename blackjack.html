@@ -1539,6 +1539,8 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 					losses=losses+1;
 
+					$('#losses').text(losses);
+
 					$('#split_hit_1').css("display", "none");
 					$('#split_stay_1').css("display", "none");
 
@@ -1637,6 +1639,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					$('body').append('<div class=\"split_banner_right\" style=\"width:' + (275+40*(split_card_count_2-2)) +'px;\"">BUST</div>');
 
 					losses=losses+1;
+					$('#losses').text(losses);
 
 					var new_total = current_total - parseInt($('#wager').val(), 10);
 					$('#money_total').text(new_total.toString());
