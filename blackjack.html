@@ -787,6 +787,14 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			var dealer_total_list = ['x'];
 			var dealer_count_list = ['x'];
 
+			if(dealer_total>21 && dealer_ace_count>0){
+
+					dealer_total= dealer_total-10;
+					dealer_ace_count=dealer_ace_count-1;
+					ace_flag=true;
+
+			}
+
 
 			dealer_card_count = 2;
 
@@ -1001,17 +1009,38 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			var player_total_list = ['x'];
 			var player_count_list = ['x'];
 			var split_flag = false;
+			
+
+
 			for(var i = 0; i<2;i++){
+
 				random_number = Math.floor(Math.random()*(52));
 				dealer_card_list.push(card_array[random_number]);
+
 				if (card_dict[card_array[random_number]] === 11){
+
 					dealer_ace_count++;
+
 				}
+
+
 				dealer_total = dealer_total + card_dict[card_array[random_number]];
+
+				if(dealer_total>21 && dealer_ace_count>0){
+
+					dealer_total=dealer_total-10;
+					dealer_ace_count=dealer_ace_count-1;
+					dealer_ace_flag = true;
+					
+				}
+
 				dealer_card_count++;
+
 				dealer_total_list.push(dealer_total);
 				dealer_count_list.push(dealer_card_count);
+
 			}
+	
 			for (var i = 1; i<dealer_total_list.length; i++){
 				setTimeout(function(x) { return function() { 
 					$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(460+(dealer_count_list[x]-1)*45,10)+ 'px\"><img src=\"static/img/' 
@@ -1495,6 +1524,11 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 		var index = 0;
 		num_hands++;
 
+		hit_choice=false;
+		split_choice=false;
+		stay_choice=false;
+		double_choice=false;
+
 		$('#double_down').css("display", "none");
 		$('#split').css("display", "none");
 		$('#hit').css("display", "none");
@@ -1655,8 +1689,8 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 					}
 					else if (number_dict[split_total_1 + ","+ $('#dealer_total').text()] === "d")
 					{
-						double_choice = true;
-						$('#split_double_down_1').css("background-color", "red");
+						hit_choice = true;
+						$('#split_hit_1').css("background-color", "red");
 
 					}		
 
@@ -1776,6 +1810,11 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 	$('#split_stay_1').click(function(){
 
+
+		hit_choice=false;
+		split_choice=false;
+		stay_choice=false;
+		double_choice=false;
 
 		$('#split_hit_1').css("display", "none");
 		$('#split_stay_1').css("display", "none");
