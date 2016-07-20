@@ -412,11 +412,11 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 						$('#stay').css("display", "unset");
 						$('#double_down').css("display", "unset");
 
-						/*if (split_flag){*/
+						if (split_flag){
 
 							$('#split').css("display", "unset");
 
-						/*}*/
+						}
 						
 						var decision_key_1 = "";
 
