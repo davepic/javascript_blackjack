@@ -176,7 +176,7 @@ function reset(){
 
 	};
 
-	function start(){
+function start(){
 
 					
 		$('#start').css("display", "none");
@@ -326,11 +326,11 @@ function reset(){
 					$('#stay').css("display", "unset");
 					$('#double_down').css("display", "unset");
 
-					if (split_flag){
+					/*if (split_flag){*/
 
 						$('#split').css("display", "unset");
 
-					}
+					/*}*/
 						
 					var decision_key_1 = "";
 
@@ -1272,23 +1272,7 @@ function reset(){
 				else
 				{
 
-					if (number_dict[split_total_1 + ","+ $('#dealer_total').text()] === undefined){
-
-						hit_choice = true; 
-						$('#split_hit_1').css("background-color", "red");
-
-					} else if (number_dict[split_total_1 + ","+ $('#dealer_total').text()] === "s")
-					{
-						stay_choice = true;
-						$('#split_stay_1').css("background-color", "red");
-
-					}
-					else if (number_dict[split_total_1 + ","+ $('#dealer_total').text()] === "d")
-					{
-						hit_choice = true;
-						$('#split_hit_1').css("background-color", "red");
-
-					}		
+					secondDecision(split_total_1 + ","+ $('#dealer_total').text());		
 
 				}			
 
@@ -1297,6 +1281,27 @@ function reset(){
 		});	
 
 
+	function secondDecision(key_value){
+
+		if (number_dict[key_value] === undefined){
+
+			hit_choice = true; 
+			$('#split_hit_1').css("background-color", "red");
+
+		} else if (number_dict[key_value] === "s")
+		{
+			stay_choice = true;
+			$('#split_stay_1').css("background-color", "red");
+
+		}
+		else if (number_dict[key_value] === "d")
+		{
+			hit_choice = true;
+			$('#split_hit_1').css("background-color", "red");
+
+		}
+
+	};
 
 	$('#split_double_down_1').click(function(){
 
@@ -1395,23 +1400,7 @@ function reset(){
 				else
 				{
 
-					if (number_dict[split_total_2 + ","+ $('#dealer_total').text()] === undefined){
-
-						hit_choice = true; 
-						$('#split_hit_2').css("background-color", "red");
-
-					} else if (number_dict[split_total_2 + ","+ $('#dealer_total').text()] === "s")
-					{
-						stay_choice = true;
-						$('#split_stay_2').css("background-color", "red");
-
-					}
-					else if (number_dict[split_total_2 + ","+ $('#dealer_total').text()] === "d")
-					{
-						double_choice = true;
-						$('#split_double_down_2').css("background-color", "red");
-
-					}		
+					secondDecision(split_total_2 + ","+ $('#dealer_total').text());		
 
 				}
 
