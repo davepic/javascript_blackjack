@@ -132,12 +132,12 @@ function reset(){
 		$('#reload').css("display", "none");
 		$('#double_down').css("display", "none");
 		$('#split').css("display", "none");
-		$('#split_hit_1').css("display", "none");
-		$('#split_stay_1').css("display", "none");
-		$('#split_double_down_1').css("display", "none");
-		$('#split_hit_2').css("display", "none");
-		$('#split_stay_2').css("display", "none");
-		$('#split_double_down_2').css("display", "none");
+		$('#split_1_hit').css("display", "none");
+		$('#split_1_stay').css("display", "none");
+		$('#split_1_double_down').css("display", "none");
+		$('#split_2_hit').css("display", "none");
+		$('#split_2_stay').css("display", "none");
+		$('#split_2_double_down').css("display", "none");
 		$('#hit').css("background-color", "black");
 		$('#stay').css("background-color", "black");
 		$('#double_down').css("background-color", "black");
@@ -508,6 +508,10 @@ function start(){
 
 	/* --------------------------------------------------------------------------------------------------------------- */
 	/* --------------------------------------------------------------------------------------------------------------- */	
+
+	
+
+
 
 		$('#hit').click(function(){
 
@@ -905,7 +909,7 @@ function start(){
 
 	});
 
-	$('#split_hit_1').mouseover(function(){
+	$('#split_1_hit').mouseover(function(){
 
 
 		$(this).css("background-color", "red");
@@ -913,7 +917,7 @@ function start(){
 
 	});
 
-	$('#split_hit_1').mouseout(function(){
+	$('#split_1_hit').mouseout(function(){
 
 		if (!hit_choice){
 
@@ -925,7 +929,7 @@ function start(){
 
 	});
 
-	$('#split_stay_1').mouseover(function(){
+	$('#split_1_stay').mouseover(function(){
 
 
 		$(this).css("background-color", "red");
@@ -933,7 +937,7 @@ function start(){
 
 	});
 
-	$('#split_stay_1').mouseout(function(){
+	$('#split_1_stay').mouseout(function(){
 
 
 		if (!stay_choice){
@@ -945,7 +949,7 @@ function start(){
 
 	});
 
-	$('#split_double_down_1').mouseover(function(){
+	$('#split_1_double_down').mouseover(function(){
 
 
 		$(this).css("background-color", "red");
@@ -953,7 +957,7 @@ function start(){
 
 	});
 
-	$('#split_double_down_1').mouseout(function(){
+	$('#split_1_double_down').mouseout(function(){
 
 
 		if (!double_choice){
@@ -965,7 +969,7 @@ function start(){
 
 	});
 
-	$('#split_hit_2').mouseover(function(){
+	$('#split_2_hit').mouseover(function(){
 
 
 		$(this).css("background-color", "red");
@@ -973,7 +977,7 @@ function start(){
 
 	});
 
-	$('#split_hit_2').mouseout(function(){
+	$('#split_2_hit').mouseout(function(){
 
 		if (!hit_choice){
 
@@ -985,7 +989,7 @@ function start(){
 
 	});
 
-	$('#split_stay_2').mouseover(function(){
+	$('#split_2_stay').mouseover(function(){
 
 
 		$(this).css("background-color", "red");
@@ -993,7 +997,7 @@ function start(){
 
 	});
 
-	$('#split_stay_2').mouseout(function(){
+	$('#split_2_stay').mouseout(function(){
 
 
 		if (!stay_choice){
@@ -1005,7 +1009,7 @@ function start(){
 
 	});
 
-	$('#split_double_down_2').mouseover(function(){
+	$('#split_2_double_down').mouseover(function(){
 
 
 		$(this).css("background-color", "red");
@@ -1013,7 +1017,7 @@ function start(){
 
 	});
 
-	$('#split_double_down_2').mouseout(function(){
+	$('#split_2_double_down').mouseout(function(){
 
 
 		if (!double_choice){
@@ -1176,18 +1180,18 @@ function start(){
 		$('body').append('<div class=\"player_div\" style =\"left:750px\"><img src=\"static/img/' 
 					+ source_array[1].split('/')[source_array[1].split('/').length-1] +'\"/></div>');
 
-		$('#split_hit_1').css("display", "unset");
-		$('#split_stay_1').css("display", "unset");
-		$('#split_double_down_1').css("display", "unset");
+		$('#split_1_hit').css("display", "unset");
+		$('#split_1_stay').css("display", "unset");
+		$('#split_1_double_down').css("display", "unset");
 		
 	});
 
 	/* --------------------------------------------------------------------------------------------------------------- */
 	/* --------------------------------------------------------------------------------------------------------------- */
 
-	$('#split_hit_1').click(function(){
+	$('#split_1_hit').click(function(){
 
-			$('#split_double_down_1').css("display", "none");
+			$('#split_1_double_down').css("display", "none");
 			
 			ace_flag = false;
 
@@ -1201,7 +1205,7 @@ function start(){
 
 				random_number = Math.floor(Math.random()*(52));
 
-				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(250+(split_card_count_1)*33,10)+ 'px\"><img src=\"static/img/' 
+				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(200+(split_card_count_1+1)*45,10)+ 'px\"><img src=\"static/img/' 
 					+ card_array[random_number] +'\"/></div>');
 
 				if (card_dict[card_array[random_number]] === 11){
@@ -1257,12 +1261,12 @@ function start(){
 
 					$('#losses').text(losses);
 
-					$('#split_hit_1').css("display", "none");
-					$('#split_stay_1').css("display", "none");
+					$('#split_1_hit').css("display", "none");
+					$('#split_1_stay').css("display", "none");
 
-					$('#split_hit_2').css("display", "unset");
-					$('#split_stay_2').css("display", "unset");
-					$('#split_double_down_2').css("display", "unset");
+					$('#split_2_hit').css("display", "unset");
+					$('#split_2_stay').css("display", "unset");
+					$('#split_2_double_down').css("display", "unset");
 
 					split_alive = false;
 
@@ -1272,7 +1276,7 @@ function start(){
 				else
 				{
 
-					secondDecision(split_total_1 + ","+ $('#dealer_total').text());		
+					secondDecision(split_total_1 + ","+ $('#dealer_total').text(), "split_1");		
 
 				}			
 
@@ -1281,29 +1285,31 @@ function start(){
 		});	
 
 
-	function secondDecision(key_value){
+	function secondDecision(key_value, button_name){
 
 		if (number_dict[key_value] === undefined){
 
-			hit_choice = true; 
-			$('#split_hit_1').css("background-color", "red");
+			hit_choice = true;
+			$('#'+ button_name+"_hit").css("background-color", "red");
 
 		} else if (number_dict[key_value] === "s")
 		{
 			stay_choice = true;
-			$('#split_stay_1').css("background-color", "red");
+			$('#'+ button_name+"_stay").css("background-color", "red");
 
 		}
 		else if (number_dict[key_value] === "d")
 		{
-			hit_choice = true;
-			$('#split_hit_1').css("background-color", "red");
+			double_choice = true;
+			$('#'+ button_name+"_double").css("background-color", "red");
 
 		}
 
 	};
 
-	$('#split_double_down_1').click(function(){
+	
+
+	$('#split_1_double_down').click(function(){
 
 
 		/*FILL IN DOUBLE DOWN*/
@@ -1311,7 +1317,7 @@ function start(){
 
 	});
 
-	$('#split_double_down_2').click(function(){
+	$('#split_2_double_down').click(function(){
 
 
 		/*FILL IN DOUBLE DOWN*/
@@ -1322,9 +1328,9 @@ function start(){
 	/* --------------------------------------------------------------------------------------------------------------- */
 	/* --------------------------------------------------------------------------------------------------------------- */
 
-	$('#split_hit_2').click(function(){
+	$('#split_2_hit').click(function(){
 
-			$('#split_double_down_2').css("display", "none");
+			$('#split_2_double_down').css("display", "none");
 			
 			ace_flag = false;
 
@@ -1333,7 +1339,7 @@ function start(){
 
 				random_number = Math.floor(Math.random()*(52));
 
-				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(750+(split_card_count_2)*33,10)+ 'px\"><img src=\"static/img/' 
+				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(700+(split_card_count_2+1)*45,10)+ 'px\"><img src=\"static/img/' 
 					+ card_array[random_number] +'\"/></div>');
 
 				if (card_dict[card_array[random_number]] === 11){
@@ -1384,11 +1390,11 @@ function start(){
 					$('#money_total').text(new_total.toString());
 					localStorage.setItem("total", $('#money_total').text());
 
-					$('#split_hit_2').css("display", "none");
+					$('#split_2_hit').css("display", "none");
 
 					if (!split_alive){
 
-						$('#split_stay_2').css("display", "none");
+						$('#split_2_stay').css("display", "none");
 						$('#reload').css("display", "unset");
 						$('#reload').css('z-index', 9999);
 						$('#reload').css('left', "600px");
@@ -1400,7 +1406,7 @@ function start(){
 				else
 				{
 
-					secondDecision(split_total_2 + ","+ $('#dealer_total').text());		
+					secondDecision(split_total_2 + ","+ $('#dealer_total').text(), "split_2");		
 
 				}
 
@@ -1412,7 +1418,7 @@ function start(){
 	/* --------------------------------------------------------------------------------------------------------------- */
 	
 
-	$('#split_stay_1').click(function(){
+	$('#split_1_stay').click(function(){
 
 
 		hit_choice=false;
@@ -1420,12 +1426,12 @@ function start(){
 		stay_choice=false;
 		double_choice=false;
 
-		$('#split_hit_1').css("display", "none");
-		$('#split_stay_1').css("display", "none");
-		$('#split_double_down_1').css("display", "none");
-		$('#split_hit_2').css("display", "unset");
-		$('#split_stay_2').css("display", "unset");
-		$('#split_double_down_2').css("display", "unset");
+		$('#split_1_hit').css("display", "none");
+		$('#split_1_stay').css("display", "none");
+		$('#split_1_double_down').css("display", "none");
+		$('#split_2_hit').css("display", "unset");
+		$('#split_2_stay').css("display", "unset");
+		$('#split_2_double_down').css("display", "unset");
 
 
 
@@ -1435,12 +1441,12 @@ function start(){
 	/* --------------------------------------------------------------------------------------------------------------- */
 	
 
-	$('#split_stay_2').click(function(){
+	$('#split_2_stay').click(function(){
 
 
-		$('#split_hit_2').css("display", "none");
-		$('#split_stay_2').css("display", "none");
-		$('#split_double_down_2').css("display", "none");
+		$('#split_2_hit').css("display", "none");
+		$('#split_2_stay').css("display", "none");
+		$('#split_2_double_down').css("display", "none");
 
 		ace_flag = false;
 

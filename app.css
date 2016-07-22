@@ -309,7 +309,7 @@ div#split:hover {
 
 }
 
-div#split_hit_1 {
+div#split_1_hit {
 
 
 	font-size:25px;
@@ -332,13 +332,13 @@ div#split_hit_1 {
 
 }
 
-div#split_hit_1:hover {
+div#split_1_hit:hover {
 
 	background-color:red;
 
 }
 
-div#split_stay_1 {
+div#split_1_stay {
 
 
 	font-size:25px;
@@ -363,13 +363,13 @@ div#split_stay_1 {
 
 }
 
-div#split_stay_1:hover {
+div#split_1_stay:hover {
 
 	background-color:red;
 
 }
 
-div#split_double_down_1 {
+div#split_1_double_down {
 
 
 	font-size:22px;
@@ -392,7 +392,7 @@ div#split_double_down_1 {
 
 }
 
-div#split_double_down_1:hover {
+div#split_1_double_down:hover {
 
 	background-color:red;
 
@@ -401,7 +401,7 @@ div#split_double_down_1:hover {
 
 
 
-div#split_hit_2 {
+div#split_2_hit {
 
 
 	font-size:25px;
@@ -424,13 +424,13 @@ div#split_hit_2 {
 
 }
 
-div#split_hit_2:hover {
+div#split_2_hit:hover {
 
 	background-color:red;
 
 }
 
-div#split_stay_2 {
+div#split_2_stay {
 
 
 	font-size:25px;
@@ -455,13 +455,13 @@ div#split_stay_2 {
 
 }
 
-div#split_stay_2:hover {
+div#split_2_stay:hover {
 
 	background-color:red;
 
 }
 
-div#split_double_down_2 {
+div#split_2_double_down {
 
 
 	font-size:22px;
@@ -484,7 +484,7 @@ div#split_double_down_2 {
 
 }
 
-div#split_double_down_2:hover {
+div#split_2_double_down:hover {
 
 	background-color:red;
 
