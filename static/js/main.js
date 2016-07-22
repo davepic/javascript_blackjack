@@ -34,120 +34,36 @@ var split_flag = false;
 var dealer_ace_flag = false;
 var player_ace_flag = false;
 var split_flag = false;
+var ace_flag = false;
 
 
 localStorage.setItem("total", $('#money_total').text());
 
 
-var card_array = ["10_of_clubs.png",
- "10_of_diamonds.png",
- "10_of_hearts.png",
- "10_of_spades.png",
- "2_of_clubs.png",
- "2_of_diamonds.png",
- "2_of_hearts.png",
- "2_of_spades.png",
- "3_of_clubs.png",
- "3_of_diamonds.png",
- "3_of_hearts.png",
- "3_of_spades.png",
- "4_of_clubs.png",
- "4_of_diamonds.png",
- "4_of_hearts.png",
- "4_of_spades.png",
- "5_of_clubs.png",
- "5_of_diamonds.png",
- "5_of_hearts.png",
- "5_of_spades.png",
- "6_of_clubs.png",
- "6_of_diamonds.png",
- "6_of_hearts.png",
- "6_of_spades.png",
- "7_of_clubs.png",
- "7_of_diamonds.png",
- "7_of_hearts.png",
- "7_of_spades.png",
- "8_of_clubs.png",
- "8_of_diamonds.png",
- "8_of_hearts.png",
- "8_of_spades.png",
- "9_of_clubs.png",
- "9_of_diamonds.png",
- "9_of_hearts.png",
- "9_of_spades.png",
- "ace_of_clubs.png",
- "ace_of_diamonds.png",
- "ace_of_hearts.png",
- "ace_of_spades.png",
- "jack_of_clubs.png",
- "jack_of_diamonds.png",
- "jack_of_hearts.png",
- "jack_of_spades.png",
- "king_of_clubs.png",
- "king_of_diamonds.png",
- "king_of_hearts.png",
- "king_of_spades.png",
- "queen_of_clubs.png",
- "queen_of_diamonds.png",
- "queen_of_hearts.png",
+var card_array = ["10_of_clubs.png", "10_of_diamonds.png", "10_of_hearts.png", "10_of_spades.png", "2_of_clubs.png", 
+"2_of_diamonds.png", "2_of_hearts.png", "2_of_spades.png", "3_of_clubs.png", "3_of_diamonds.png", "3_of_hearts.png",
+ "3_of_spades.png", "4_of_clubs.png", "4_of_diamonds.png", "4_of_hearts.png", "4_of_spades.png", "5_of_clubs.png",
+ "5_of_diamonds.png", "5_of_hearts.png", "5_of_spades.png", "6_of_clubs.png", "6_of_diamonds.png", "6_of_hearts.png",
+ "6_of_spades.png", "7_of_clubs.png", "7_of_diamonds.png", "7_of_hearts.png", "7_of_spades.png", "8_of_clubs.png",
+ "8_of_diamonds.png", "8_of_hearts.png", "8_of_spades.png", "9_of_clubs.png", "9_of_diamonds.png", "9_of_hearts.png",
+ "9_of_spades.png", "ace_of_clubs.png", "ace_of_diamonds.png", "ace_of_hearts.png", "ace_of_spades.png", "jack_of_clubs.png",
+ "jack_of_diamonds.png", "jack_of_hearts.png", "jack_of_spades.png", "king_of_clubs.png", "king_of_diamonds.png",
+ "king_of_hearts.png", "king_of_spades.png", "queen_of_clubs.png", "queen_of_diamonds.png", "queen_of_hearts.png",
 "queen_of_spades.png"]
 
 
 
-var card_dict = {
-
-"10_of_clubs.png": 10,
-"10_of_diamonds.png": 10,
-"10_of_hearts.png": 10,
-"10_of_spades.png": 10,
-"2_of_clubs.png": 2,
-"2_of_diamonds.png": 2,
-"2_of_hearts.png": 2,
-"2_of_spades.png": 2,
-"3_of_clubs.png": 3,
-"3_of_diamonds.png": 3,
-"3_of_hearts.png": 3,
-"3_of_spades.png": 3,
-"4_of_clubs.png": 4,
-"4_of_diamonds.png": 4,
-"4_of_hearts.png": 4,
-"4_of_spades.png": 4,
-"5_of_clubs.png": 5,
-"5_of_diamonds.png": 5,
-"5_of_hearts.png": 5,
-"5_of_spades.png": 5,
-"6_of_clubs.png": 6,
-"6_of_diamonds.png": 6,
-"6_of_hearts.png": 6,
-"6_of_spades.png": 6,
-"7_of_clubs.png": 7,
-"7_of_diamonds.png": 7,
-"7_of_hearts.png": 7,
-"7_of_spades.png": 7,
-"8_of_clubs.png": 8,
-"8_of_diamonds.png": 8,
-"8_of_hearts.png": 8,
-"8_of_spades.png": 8,
-"9_of_clubs.png": 9,
-"9_of_diamonds.png": 9,
-"9_of_hearts.png": 9,
-"9_of_spades.png": 9,
-"ace_of_clubs.png": 11,
-"ace_of_diamonds.png": 11,
-"ace_of_hearts.png": 11,
-"ace_of_spades.png": 11,
-"jack_of_clubs.png": 10,
-"jack_of_diamonds.png": 10,
-"jack_of_hearts.png": 10,
-"jack_of_spades.png": 10,
-"king_of_clubs.png": 10,
-"king_of_diamonds.png": 10,
-"king_of_hearts.png": 10,
-"king_of_spades.png": 10,
-"queen_of_clubs.png": 10,
-"queen_of_diamonds.png": 10,
-"queen_of_hearts.png": 10,
-"queen_of_spades.png": 10 
+var card_dict = {"10_of_clubs.png": 10, "10_of_diamonds.png": 10, "10_of_hearts.png": 10, "10_of_spades.png": 10,
+"2_of_clubs.png": 2, "2_of_diamonds.png": 2, "2_of_hearts.png": 2, "2_of_spades.png": 2, "3_of_clubs.png": 3,
+"3_of_diamonds.png": 3, "3_of_hearts.png": 3, "3_of_spades.png": 3, "4_of_clubs.png": 4, "4_of_diamonds.png": 4,
+"4_of_hearts.png": 4, "4_of_spades.png": 4, "5_of_clubs.png": 5, "5_of_diamonds.png": 5, "5_of_hearts.png": 5,
+"5_of_spades.png": 5, "6_of_clubs.png": 6, "6_of_diamonds.png": 6, "6_of_hearts.png": 6, "6_of_spades.png": 6,
+"7_of_clubs.png": 7, "7_of_diamonds.png": 7, "7_of_hearts.png": 7, "7_of_spades.png": 7, "8_of_clubs.png": 8,
+"8_of_diamonds.png": 8, "8_of_hearts.png": 8, "8_of_spades.png": 8, "9_of_clubs.png": 9, "9_of_diamonds.png": 9,
+"9_of_hearts.png": 9, "9_of_spades.png": 9, "ace_of_clubs.png": 11, "ace_of_diamonds.png": 11, "ace_of_hearts.png": 11,
+"ace_of_spades.png": 11, "jack_of_clubs.png": 10, "jack_of_diamonds.png": 10, "jack_of_hearts.png": 10, "jack_of_spades.png": 10,
+"king_of_clubs.png": 10, "king_of_diamonds.png": 10, "king_of_hearts.png": 10, "king_of_spades.png": 10,
+"queen_of_clubs.png": 10, "queen_of_diamonds.png": 10, "queen_of_hearts.png": 10, "queen_of_spades.png": 10 
 } 
 
 var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A,8,6": "s"	, "A,8,7": "s"	, "A,8,8": "s"	, "A,8,9": "s"	, "A,8,10": "s"	, "A,8,J": "s"	, "A,8,Q": "s"	, "A,8,K": "s"	, "A,8,A": "s"
@@ -182,7 +98,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 	, "3,3,4": "sp"	, "3,3,5": "sp"	, "3,3,6": "sp"	, "3,3,7": "sp"	, "2,2,2": "sp"	, "2,2,3": "sp"	, "2,2,4": "sp"	, "2,2,5": "sp"	, "2,2,6": "sp"	, "2,2,7": "sp"}
 
 
- var number_dict = {"17,2": "s"	, "17,3": "s"	, "17,4": "s"	, "17,5": "s"	, "17,6": "s"	, "17,7": "s"	, "17,8": "s"	, "17,9": "s"	, "17,10": "s"	, "17,11": "s"
+var number_dict = {"17,2": "s"	, "17,3": "s"	, "17,4": "s"	, "17,5": "s"	, "17,6": "s"	, "17,7": "s"	, "17,8": "s"	, "17,9": "s"	, "17,10": "s"	, "17,11": "s"
 	, "18,2": "s"	, "18,3": "s"	, "18,4": "s"	, "18,5": "s"	, "18,6": "s"	, "18,7": "s"	, "18,8": "s"	, "18,9": "s"	, "18,10": "s"	, "18,11": "s"
 	, "19,2": "s"	, "19,3": "s"	, "19,4": "s"	, "19,5": "s"	, "19,6": "s"	, "19,7": "s"	, "19,8": "s"	, "19,9": "s"	, "19,10": "s"	, "19,11": "s"
 	, "20,2": "s"	, "20,3": "s"	, "20,4": "s"	, "20,5": "s"	, "20,6": "s"	, "20,7": "s"	, "20,8": "s"	, "20,9": "s"	, "20,10": "s"	, "20,11": "s"
@@ -194,382 +110,380 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 	, "9,3": "d"	, "9,4": "d"	, "9,5": "d"	, "9,6": "d"}
 
 
-	function reset(){
+function reset(){
 
-		$('#wager').prop('disabled', true);
+	$('#wager').prop('disabled', true);
 
-			hit_choice = false;
-			stay_choice= false;
-			double_choice = false;
-			split_choice = false;
-			$('#dealer_total').text("");
-			$('#hit').css("display", "none");
-			$('#stay').css("display", "none");
-			$('#stay').text("STAY");
-			$('.player_div').css("display", "none");
-			$('.dealer_div').css("display", "none");
-			$('.banner').css("display", "none");
-			$('.split_banner_left').css("display", "none");
-			$('.split_banner_right').css("display", "none");
-			$('#player_total').text("");
-			$('.card_back').css("display", "none");
-			$('#reload').css("display", "none");
-			$('#double_down').css("display", "none");
-			$('#split').css("display", "none");
-			$('#split_hit_1').css("display", "none");
-			$('#split_stay_1').css("display", "none");
-			$('#split_double_down_1').css("display", "none");
-			$('#split_hit_2').css("display", "none");
-			$('#split_stay_2').css("display", "none");
-			$('#split_double_down_2').css("display", "none");
-			$('#hit').css("background-color", "black");
-			$('#stay').css("background-color", "black");
-			$('#double_down').css("background-color", "black");
-			$('#split').css("background-color", "black");
-			if($('#split_player_total_1').is(':visible')){
-				$('#player_total').css("display", "unset");
-			}
-			$('#split_player_total_1').css("display", "none");
-			$('#split_player_total_2').css("display", "none");
+		hit_choice = false;
+		stay_choice= false;
+		double_choice = false;
+		split_choice = false;
+		$('#dealer_total').text("");
+		$('#hit').css("display", "none");
+		$('#stay').css("display", "none");
+		$('#stay').text("STAY");
+		$('.player_div').css("display", "none");
+		$('.dealer_div').css("display", "none");
+		$('.banner').css("display", "none");
+		$('.split_banner_left').css("display", "none");
+		$('.split_banner_right').css("display", "none");
+		$('#player_total').text("");
+		$('.card_back').css("display", "none");
+		$('#reload').css("display", "none");
+		$('#double_down').css("display", "none");
+		$('#split').css("display", "none");
+		$('#split_hit_1').css("display", "none");
+		$('#split_stay_1').css("display", "none");
+		$('#split_double_down_1').css("display", "none");
+		$('#split_hit_2').css("display", "none");
+		$('#split_stay_2').css("display", "none");
+		$('#split_double_down_2').css("display", "none");
+		$('#hit').css("background-color", "black");
+		$('#stay').css("background-color", "black");
+		$('#double_down').css("background-color", "black");
+		$('#split').css("background-color", "black");
+		if($('#split_player_total_1').is(':visible')){
+			$('#player_total').css("display", "unset");
+		}
+		$('#split_player_total_1').css("display", "none");
+		$('#split_player_total_2').css("display", "none");
 						
-			player_blackjack_flag=false;
-			card_count = 0;
-			random_number= 0;
-			player_total = 0;
-			ace_count = 0;
-			dealer_total = 0;
-			dealer_card_count = 0;
-			split_player_total_1=0;
-			split_player_total_2=0;
-			split_ace_count_1=0;
-			split_ace_count_2=0;
-			split_card_count_1=1;
-			split_card_count_2=1;
-			dealer_ace_count = 0;
-			player_card_count = 0;
-			player_ace_count = 0;
-			player_total = 0;
-			player_ace_flag=false;
-			dealer_card_list = ['x'];
-			dealer_total_list = ['x'];
-			dealer_count_list = ['x'];
-			player_card_list = ['x'];
-			player_total_list = ['x'];
-			player_count_list = ['x'];
-			split_flag = false;
-
-
+		player_blackjack_flag=false;
+		card_count = 0;
+		random_number= 0;
+		player_total = 0;
+		ace_count = 0;
+		dealer_total = 0;
+		dealer_card_count = 0;
+		split_player_total_1=0;
+		split_player_total_2=0;
+		split_ace_count_1=0;
+		split_ace_count_2=0;
+		split_card_count_1=1;
+		split_card_count_2=1;
+		dealer_ace_count = 0;
+		player_card_count = 0;
+		player_ace_count = 0;
+		player_total = 0;
+		player_ace_flag=false;
+		dealer_card_list = ['x'];
+		dealer_total_list = ['x'];
+		dealer_count_list = ['x'];
+		player_card_list = ['x'];
+		player_total_list = ['x'];
+		player_count_list = ['x'];
+		split_flag = false;
 
 	};
 
 	function start(){
 
 					
-			$('#start').css("display", "none");
-			$('#wager').prop('disabled', true);
+		$('#start').css("display", "none");
+		$('#wager').prop('disabled', true);
 
 
-			$('#money_total').text(localStorage.getItem("total"));
+		$('#money_total').text(localStorage.getItem("total"));
 
-			for(var i = 0; i<2;i++){
+		for(var i = 0; i<2;i++){
 
-				random_number = Math.floor(Math.random()*(52));
-				dealer_card_list.push(card_array[random_number]);
+			random_number = Math.floor(Math.random()*(52));
+			dealer_card_list.push(card_array[random_number]);
 
-				if (card_dict[card_array[random_number]] === 11){
+			if (card_dict[card_array[random_number]] === 11){
 
-					dealer_ace_count++;
-
-				}
-
-
-				dealer_total = dealer_total + card_dict[card_array[random_number]];
-
-				if(dealer_total>21 && dealer_ace_count>0){
-
-					dealer_total=dealer_total-10;
-					dealer_ace_count=dealer_ace_count-1;
-					dealer_ace_flag = true;
-					
-				}
-
-				dealer_card_count++;
-
-				dealer_total_list.push(dealer_total);
-				dealer_count_list.push(dealer_card_count);
+				dealer_ace_count++;
 
 			}
 
 
-			for (var i = 1; i<dealer_total_list.length; i++){
+			dealer_total = dealer_total + card_dict[card_array[random_number]];
+
+			if(dealer_total>21 && dealer_ace_count>0){
+
+				dealer_total=dealer_total-10;
+				dealer_ace_count=dealer_ace_count-1;
+				dealer_ace_flag = true;
+					
+			}
+
+			dealer_card_count++;
+
+			dealer_total_list.push(dealer_total);
+			dealer_count_list.push(dealer_card_count);
+
+		}
 
 
-				setTimeout(function(x) { return function() { 
-
-					$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(460+(dealer_count_list[x]-1)*45,10)+ 'px\"><img src=\"static/img/' 
-					+ dealer_card_list[x] +'\"/></div>');
-
-					if (x===2){
-
-						$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
+		for (var i = 1; i<dealer_total_list.length; i++){
 
 
-					}
+			setTimeout(function(x) { return function() { 
+
+				$('body').append('<div class=\"dealer_div\" style =\"left:' + parseInt(460+(dealer_count_list[x]-1)*45,10)+ 'px\"><img src=\"static/img/' 
+				+ dealer_card_list[x] +'\"/></div>');
+
+				if (x===2){
+
+					$('body').append('<div class = \"card_back\"><img src=\"static/img/card_back.jpg\"/></div>');
+
+
+				}
 				
 					
-				if (x===1){
+			if (x===1){
 
-						$('#dealer_total').text(dealer_total_list[1]);
-						$('#dealer_popup').text("+" + card_dict[dealer_card_list[x]]);
-						$('#dealer_popup').fadeIn("fast");
-						$('#dealer_popup').fadeOut("fast");
-
-				}
-
-				}; } (i), 1000*i);
+					$('#dealer_total').text(dealer_total_list[1]);
+					$('#dealer_popup').text("+" + card_dict[dealer_card_list[x]]);
+					$('#dealer_popup').fadeIn("fast");
+					$('#dealer_popup').fadeOut("fast");
 
 			}
 
+			}; } (i), 1000*i);
 
-			for(var i = 0; i<2;i++){
+		}
 
-				random_number = Math.floor(Math.random()*(52));
-				player_card_list.push(card_array[random_number]);
 
-				if (card_dict[card_array[random_number]] === 11){
+		for(var i = 0; i<2;i++){
 
-					player_ace_count++;
+			random_number = Math.floor(Math.random()*(52));
+			player_card_list.push(card_array[random_number]);
 
-				}
+			if (card_dict[card_array[random_number]] === 11){
 
-				player_total = player_total + card_dict[card_array[random_number]];
+				player_ace_count++;
 
-				if(player_total>21 && player_ace_count>0){
+			}
 
-					player_total=player_total-10;
-					player_ace_count=player_ace_count-1;
-					player_ace_flag = true;
+			player_total = player_total + card_dict[card_array[random_number]];
+
+			if(player_total>21 && player_ace_count>0){
+
+				player_total=player_total-10;
+				player_ace_count=player_ace_count-1;
+				player_ace_flag = true;
 					
 
-				};
+			};
 
 
-				player_card_count++;
+			player_card_count++;
 
-				player_total_list.push(player_total);
-				player_count_list.push(player_card_count);
+			player_total_list.push(player_total);
+			player_count_list.push(player_card_count);
 
-			}
+		}
 
-			if (player_card_list[1].split('_')[0] === player_card_list[2].split('_')[0]){
-
-
-				split_flag = true;
-
-			}
-
-			for (var i = 1; i<player_total_list.length; i++){
+		if (player_card_list[1].split('_')[0] === player_card_list[2].split('_')[0]){
 
 
-				setTimeout(function(x) { return function() { 
+			split_flag = true;
+
+		}
+
+		for (var i = 1; i<player_total_list.length; i++){
+
+
+			setTimeout(function(x) { return function() { 
 
 				
-					$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(400+(dealer_count_list[x]-2)*45,10)+ 'px\"><img src=\"static/img/' 
-					+ player_card_list[x] +'\"/></div>');
+				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(400+(dealer_count_list[x]-2)*45,10)+ 'px\"><img src=\"static/img/' 
+				+ player_card_list[x] +'\"/></div>');
 
 
 
-					$('#player_total').text(player_total_list[x]);
+				$('#player_total').text(player_total_list[x]);
 
-					if(x===2 && player_ace_flag){
+				if(x===2 && player_ace_flag){
 
-						$('#player_popup').text("+1");
+					$('#player_popup').text("+1");
 
-					} else
-					{
+				} else
+				{
 
-						$('#player_popup').text("+" + card_dict[player_card_list[x]]);
+					$('#player_popup').text("+" + card_dict[player_card_list[x]]);
+
+				}
+					
+				$('#player_popup').fadeIn("fast");
+				$('#player_popup').fadeOut("fast");
+
+				if (x===2){
+
+
+					if (player_total === 21){
+
+						$('#stay').css("display","unset");
+						$('#stay').text("Cont");
+						player_blackjack_flag=true;
 
 					}
-					
-					$('#player_popup').fadeIn("fast");
-					$('#player_popup').fadeOut("fast");
 
-					if (x===2){
+					else{
 
+					$('#hit').css("display", "unset");
+					$('#stay').css("display", "unset");
+					$('#double_down').css("display", "unset");
 
-						if (player_total === 21){
+					if (split_flag){
 
-							$('#stay').css("display","unset");
-							$('#stay').text("Cont");
-							player_blackjack_flag=true;
+						$('#split').css("display", "unset");
 
-						}
-
-						else{
-
-						$('#hit').css("display", "unset");
-						$('#stay').css("display", "unset");
-						$('#double_down').css("display", "unset");
-
-						if (split_flag){
-
-							$('#split').css("display", "unset");
-
-						}
+					}
 						
-						var decision_key_1 = "";
+					var decision_key_1 = "";
 
 
-						switch(player_card_list[1].split('_')[0]){
+					switch(player_card_list[1].split('_')[0]){
 
-							case "jack":
+						case "jack":
 
-								decision_key_1 = decision_key_1 + "J";
-								break;
+							decision_key_1 = decision_key_1 + "J";
+							break;
 
-							case "queen":
+						case "queen":
 
-								decision_key_1 = decision_key_1 + "Q";
-								break;
+							decision_key_1 = decision_key_1 + "Q";
+							break;
 
-							case "king":
+						case "king":
 
-								decision_key_1 = decision_key_1 + "K";
-								break;
+							decision_key_1 = decision_key_1 + "K";
+							break;
 
-							case "ace":
+						case "ace":
 
-								decision_key_1 = decision_key_1 + "A";
-								break;
+							decision_key_1 = decision_key_1 + "A";
+							break;
 
-							default:
+						default:
 
-								decision_key_1 = decision_key_1 + player_card_list[1].split('_')[0]
+							decision_key_1 = decision_key_1 + player_card_list[1].split('_')[0]
 
-						}
+					}
 
-						decision_key_1 = decision_key_1 + ",";
+					decision_key_1 = decision_key_1 + ",";
 
-						switch(player_card_list[2].split('_')[0]){
+					switch(player_card_list[2].split('_')[0]){
 
-							case "jack":
+						case "jack":
 
-								decision_key_1 = decision_key_1 + "J";
-								break;
+							decision_key_1 = decision_key_1 + "J";
+							break;
 
-							case "queen":
+						case "queen":
 
-								decision_key_1 = decision_key_1 + "Q";
-								break;
+							decision_key_1 = decision_key_1 + "Q";
+							break;
 
-							case "king":
+						case "king":
 
-								decision_key_1 = decision_key_1 + "K";
-								break;
+							decision_key_1 = decision_key_1 + "K";
+							break;
 
-							case "ace":
+						case "ace":
 
-								decision_key_1 = decision_key_1 + "A";
-								break;
+							decision_key_1 = decision_key_1 + "A";
+							break;
 
-							default:
+						default:
 
-								decision_key_1 = decision_key_1 + player_card_list[2].split('_')[0]
+							decision_key_1 = decision_key_1 + player_card_list[2].split('_')[0]
 
-						}
+					}
 
-						decision_key_1 = decision_key_1 + ",";
+					decision_key_1 = decision_key_1 + ",";
 
-						switch(dealer_card_list[1].split('_')[0]){
+					switch(dealer_card_list[1].split('_')[0]){
 
-							case "jack":
+						case "jack":
 
-								decision_key_1 = decision_key_1 + "J";
-								break;
+							decision_key_1 = decision_key_1 + "J";
+							break;
 
-							case "queen":
+						case "queen":
 
-								decision_key_1 = decision_key_1 + "Q";
-								break;
+							decision_key_1 = decision_key_1 + "Q";
+							break;
 
-							case "king":
+						case "king":
 
-								decision_key_1 = decision_key_1 + "K";
-								break;
+							decision_key_1 = decision_key_1 + "K";
+							break;
 
-							case "ace":
+						case "ace":
 
-								decision_key_1 = decision_key_1 + "A";
-								break;
+							decision_key_1 = decision_key_1 + "A";
+							break;
 
-							default:
+						default:
 
-								decision_key_1 = decision_key_1 + dealer_card_list[1].split('_')[0]
+							decision_key_1 = decision_key_1 + dealer_card_list[1].split('_')[0]
 
-						}
-
-
-
-						if (first_dict[decision_key_1]===undefined){
+					}
 
 
-							if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === undefined){
 
-								hit_choice = true; 
+					if (first_dict[decision_key_1]===undefined){
 
-								$('#hit').css("background-color", "red");
 
-							} else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "s")
-							{
-								stay_choice = true;
+						if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === undefined){
 
-								$('#stay').css("background-color", "red");
+							hit_choice = true; 
 
-							}
-							else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "d")
-							{
+							$('#hit').css("background-color", "red");
 
-								double_choice = true;
-								$('#double_down').css("background-color", "red");
+						} else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "s")
+						{
+							stay_choice = true;
 
-							}
-							else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "sp")
-							{
-
-								split_choice = true;
-								$('#split').css("background-color", "red");
-
-							}
-							
-
-						}
-						else if (first_dict[decision_key_1]==="s"){
-
-							stay_choice=true;
 							$('#stay').css("background-color", "red");
 
 						}
-						else if (first_dict[decision_key_1]==="d"){
+						else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "d")
+						{
 
-							double_choice=true;
+							double_choice = true;
 							$('#double_down').css("background-color", "red");
-						} 
-						else if (first_dict[decision_key_1]==="sp"){
-
-							split_choice=true;
-							$('#split').css("background-color", "red");
-
 
 						}
+						else if (number_dict[player_total_list[2]+","+dealer_total_list[1]] === "sp")
+						{
+
+							split_choice = true;
+							$('#split').css("background-color", "red");
+
+						}
+							
+
+					}
+					else if (first_dict[decision_key_1]==="s"){
+
+						stay_choice=true;
+						$('#stay').css("background-color", "red");
+
+					}
+					else if (first_dict[decision_key_1]==="d"){
+
+						double_choice=true;
+						$('#double_down').css("background-color", "red");
+					} 
+					else if (first_dict[decision_key_1]==="sp"){
+
+						split_choice=true;
+							$('#split').css("background-color", "red");
+
 
 					}
 
 				}
 
-				}; } (i), 1500*i);
-
 			}
+
+			}; } (i), 1500*i);
+
+		}
 
 	};
 
@@ -606,7 +520,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			$('#split').css("display", "none");
 
 			
-			var ace_flag = false;
+			ace_flag = false;
 			
 			if(player_total<=21){
 
@@ -718,7 +632,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 		$('#stay').click(function(){
 
 
-			var ace_flag = false;
+			ace_flag = false;
 
 			$('#hit').css("display", "none");
 			$('#stay').css("display", "none");
@@ -733,9 +647,9 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 			$('#dealer_popup').fadeOut("fast");
 
 
-			var dealer_card_list = ['x'];
-			var dealer_total_list = ['x'];
-			var dealer_count_list = ['x'];
+			dealer_card_list = ['x'];
+			dealer_total_list = ['x'];
+			dealer_count_list = ['x'];
 
 			if(dealer_total>21 && dealer_ace_count>0){
 
@@ -1118,7 +1032,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 		$('#double_down').click(function(){
 
-			var ace_flag = false;
+			ace_flag = false;
 
 
 			$('#hit').css("display", "none");
@@ -1275,7 +1189,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 			$('#split_double_down_1').css("display", "none");
 			
-			var ace_flag = false;
+			ace_flag = false;
 
 			hit_choice=false;
 			stay_choice=false;
@@ -1407,7 +1321,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 
 			$('#split_double_down_2').css("display", "none");
 			
-			var ace_flag = false;
+			ace_flag = false;
 
 			
 			if(split_total_2<=21){
@@ -1539,7 +1453,7 @@ var first_dict = {"A,8,2": "s"	, "A,8,3": "s"	, "A,8,4": "s"	, "A,8,5": "s"	, "A
 		$('#split_stay_2').css("display", "none");
 		$('#split_double_down_2').css("display", "none");
 
-		var ace_flag = false;
+		ace_flag = false;
 
 		$('.card_back').css("display", "none");
 
