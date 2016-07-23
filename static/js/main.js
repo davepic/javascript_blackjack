@@ -1305,6 +1305,7 @@ function start(){
 
 		}
 
+
 	};
 
 	
@@ -1312,7 +1313,102 @@ function start(){
 	$('#split_1_double_down').click(function(){
 
 
-		/*FILL IN DOUBLE DOWN*/
+		ace_flag = false;
+
+		$('#split_1_hit').css("display", "none");
+		$('#split_1_stay').css("display", "none");
+		$('#split_1_double_down').css("display", "none");
+		
+
+		var double_total = parseInt($('#wager').val(), 10)*2;
+
+		$('#wager').val(double_total);
+
+			hit_choice=false;
+			stay_choice=false;
+			double_choice=false;
+			split_choice=false;
+			
+			
+			if(split_total_1<=21){
+
+				random_number = Math.floor(Math.random()*(52));
+
+				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(200+(split_card_count_1+1)*45,10)+ 'px\"><img src=\"static/img/' 
+					+ card_array[random_number] +'\"/></div>');
+
+				if (card_dict[card_array[random_number]] === 11){
+
+					player_ace_count++;
+
+				};
+
+				split_total_1 = split_total_1 + card_dict[card_array[random_number]];
+
+				if(split_total_1>21 && split_ace_count_1>0){
+
+					split_total_1=split_total_1-10;
+					split_ace_count_1=split_ace_count_1-1;
+					ace_flag=true;
+
+				};
+
+				$('#split_player_total_1').text(split_total_1);
+
+				if (ace_flag){
+
+					$('#split_popup_1').text("+1");
+
+				}
+				else {
+
+					$('#split_popup_1').text("+" + card_dict[card_array[random_number]]);
+				}
+				
+				$('#split_popup_1').fadeIn("fast");
+				$('#split_popup_1').fadeOut("fast"); 
+				
+				
+				split_card_count_1 = split_card_count_1 + 1;
+
+				if(split_total_1>21){
+
+
+					var current_total = parseInt(localStorage.getItem("total"), 10);
+
+					
+
+					$('body').append('<div class=\"split_banner_left\" style=\"width:' + (275+40*(split_card_count_1-2)) +'px;\"">BUST</div>');
+
+					
+
+					var new_total = current_total - parseInt($('#wager').val(), 10);
+					$('#money_total').text(new_total.toString());
+					localStorage.setItem("total", $('#money_total').text());
+
+					losses=losses+1;
+
+					$('#losses').text(losses);
+
+					
+
+					split_alive = false;
+
+
+
+				}
+				else
+				{
+
+					secondDecision(split_total_1 + ","+ $('#dealer_total').text(), "split_1");		
+
+				}	
+
+				$('#split_2_hit').css("display", "unset");
+				$('#split_2_stay').css("display", "unset");
+				$('#split_2_double_down').css("display", "unset");		
+
+			}
 
 
 	});
