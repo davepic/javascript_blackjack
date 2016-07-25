@@ -35,6 +35,7 @@ var dealer_ace_flag = false;
 var player_ace_flag = false;
 var split_flag = false;
 var ace_flag = false;
+var double_total = 0;
 
 
 localStorage.setItem("total", $('#money_total').text());
@@ -1044,7 +1045,7 @@ function start(){
 			$('#double_down').css("display", "none");
 			$('#split').css("display", "none");
 
-			var double_total = parseInt($('#wager').val(), 10)*2;
+			double_total = parseInt($('#wager').val(), 10)*2;
 
 			$('#wager').val(double_total);
 			
@@ -1320,7 +1321,7 @@ function start(){
 		$('#split_1_double_down').css("display", "none");
 		
 
-		var double_total = parseInt($('#wager').val(), 10)*2;
+		double_total = parseInt($('#wager').val(), 10)*2;
 
 		$('#wager').val(double_total);
 
@@ -1417,6 +1418,96 @@ function start(){
 
 
 		/*FILL IN DOUBLE DOWN*/
+
+		ace_flag = false;
+
+		$('#split_2_hit').css("display", "none");
+		$('#split_2_stay').css("display", "none");
+		$('#split_2_double_down').css("display", "none");
+		
+
+		$('#wager').val(double_total);
+
+			hit_choice=false;
+			stay_choice=false;
+			double_choice=false;
+			split_choice=false;
+			
+			
+			if(split_total_2<=21){
+
+				random_number = Math.floor(Math.random()*(52));
+
+				$('body').append('<div class=\"player_div\" style =\"left:' + parseInt(700+(split_card_count_2+1)*45,10)+ 'px\"><img src=\"static/img/' 
+					+ card_array[random_number] +'\"/></div>');
+
+				if (card_dict[card_array[random_number]] === 11){
+
+					player_ace_count++;
+
+				};
+
+				split_total_2 = split_total_2 + card_dict[card_array[random_number]];
+
+				if(split_total_2>21 && split_ace_count_2>0){
+
+					split_total_2=split_total_1-10;
+					split_ace_count_2=split_ace_count_2-1;
+					ace_flag=true;
+
+				};
+
+				$('#split_player_total_2').text(split_total_1);
+
+				if (ace_flag){
+
+					$('#split_popup_2').text("+1");
+
+				}
+				else {
+
+					$('#split_popup_2').text("+" + card_dict[card_array[random_number]]);
+				}
+				
+				$('#split_popup_2').fadeIn("fast");
+				$('#split_popup_2').fadeOut("fast"); 
+				
+				
+				split_card_count_2 = split_card_count_2 + 1;
+
+				if(split_total_2>21){
+
+
+					var current_total = parseInt(localStorage.getItem("total"), 10);
+
+					$('body').append('<div class=\"split_banner_right\" style=\"width:' + (275+40*(split_card_count_2-2)) +'px;\"">BUST</div>');
+
+					var new_total = current_total - parseInt($('#wager').val(), 10);
+					$('#money_total').text(new_total.toString());
+					localStorage.setItem("total", $('#money_total').text());
+
+					losses=losses+1;
+
+					$('#losses').text(losses);
+
+
+				}
+				else
+				{
+
+					secondDecision(split_total_2 + ","+ $('#dealer_total').text(), "split_2");		
+
+				}	
+
+				if (split_alive || split_total_2<=21){
+
+					$('#split_2_stay').css("display", "unset");
+					$('#split_2_stay').text("Cont");
+
+				}
+					
+
+			}
 
 
 	});
