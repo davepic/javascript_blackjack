@@ -1417,8 +1417,6 @@ function start(){
 	$('#split_2_double_down').click(function(){
 
 
-		/*FILL IN DOUBLE DOWN*/
-
 		ace_flag = false;
 
 		$('#split_2_hit').css("display", "none");
@@ -1457,7 +1455,7 @@ function start(){
 
 				};
 
-				$('#split_player_total_2').text(split_total_1);
+				$('#split_player_total_2').text(split_total_2);
 
 				if (ace_flag){
 
