@@ -490,6 +490,18 @@ function start(){
 
 	$(document).ready(function(){
 
+		$(window).resize(function(){
+
+			$("#money_table").css("width", $(window).width());
+
+			$("img").css("height", 245*($(window).width())/1275);
+			$("img").css("width", 175*($(window).width())/1275);
+
+
+		});
+
+		
+
 
 		if (wins===0 && losses===0 && pushes===0){
 
