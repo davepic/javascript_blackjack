@@ -1,60 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
-	
 		<title>Blackjack</title>
-
 		<link rel="stylesheet" type="text/css" href="app.css">
-	
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
-
 	</head>
-
 	<body>
-
 		<div id = "hit">HIT</div>
-
 		<div id = "stay">STAY</div>
-
 		<div id = "player_total"></div>
-
 		<div id="dealer_total"></div>
-
 		<div id = "player_popup"></div>
-
 		<div id="dealer_popup"></div>
-
 		<div id="start">Start</div>
-
 		<div id="split">SPLIT</div>
-
 		<div id="split_player_total_1"></div>
-
 		<div id="split_player_total_2"></div>
-
 		<div id="split_popup_1">+11</div>
-
 		<div id="split_popup_2">+11</div>
-
 		<div id="double_down">DOUBLE</div>
-
 		<div id="reload">New Hand</div>
-
 		<div id = "split_1_hit">HIT</div>
-
 		<div id = "split_1_stay">STAY</div>
-
 		<div id="split_1_double_down">DOUBLE</div>
-
 		<div id = "split_2_hit">HIT</div>
-
 		<div id = "split_2_stay">STAY</div>
-
 		<div id="split_2_double_down">DOUBLE</div>
 
 		<table id="money_table">
-  
   			<tr>
     			<td>Money Total</td>
     			<td id ="money_total">0</td>
@@ -63,11 +36,8 @@
     				<input type="number" name="wager" id="wager" min="10" max="10000" step="10" value="10" required="true"/>
     			</td>
   			</tr>
-	
 		</table>
-
 		<table id="winlosstable" border="1" bordercolor="white">
-
 			<tr>
 				<td>Wins</td>
 				<td>Losses</td>
@@ -79,13 +49,16 @@
 				<td id="losses">0</td>
 				<td id="pushes">0</td>
 			</tr>
-
 		</table>
-
-
+	<script type="text/javascript" src="static/js/dictionaries.js"></script>
 	<script type="text/javascript" src="static/js/main.js"></script>
-
-
+	<script type="text/javascript" src="static/js/format.js"></script>
+	<script type="text/javascript" src="static/js/start.js"></script>
+	<script type="text/javascript" src="static/js/hits.js"></script>
+	<script type="text/javascript" src="static/js/stays.js"></script>
+	<script type="text/javascript" src="static/js/doubleDowns.js"></script>
+	<script type="text/javascript" src="static/js/split.js"></script>
+	<script type="text/javascript" src="static/js/secondDecision.js"></script>
+	<script type="text/javascript" src="static/js/reset.js"></script>
 	</body>
-
 </html>
